@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Sweetify</string>
+    <string name="home">Home</string>
+    <string name="glupedia">Glu-pedia</string>
+    <string name="scan">Scan</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
+    <string name="searchbar_hint">Search...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_glupedia">hello glupedia</string>
+    <string name="hello_history">hello history</string>
+    <string name="hello_profile">hello profile</string>
+    <string name="hello_scan">hello scan</string>
+</resources>

@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Sweetify" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:fontFamily">@font/poppins_regular</item>
+
+        <item name="colorPrimary">@color/pink_500</item>
+        <item name="colorOnPrimary">@color/pink_50</item>
+        <item name="colorPrimaryContainer">@color/pink_100</item>
+        <item name="colorOnPrimaryContainer">@color/pink_700</item>
+        <item name="colorSecondary">@color/pink_300</item>
+        <item name="colorOnSecondary">@color/pink_50</item>
+        <item name="colorSecondaryContainer">@color/pink_200</item>
+        <item name="colorOnSecondaryContainer">@color/pink_800</item>
+        <item name="colorTertiary">@color/pink_400</item>
+        <item name="colorOnTertiary">@color/pink_50</item>
+        <item name="colorTertiaryContainer">@color/pink_300</item>
+        <item name="colorOnTertiaryContainer">@color/pink_900</item>
+        <item name="colorError">@color/pink_600</item>
+        <item name="colorOnError">@color/pink_50</item>
+        <item name="colorErrorContainer">@color/pink_100</item>
+        <item name="colorOnErrorContainer">@color/pink_950</item>
+        <item name="colorBackgroundFloating">@color/pink_50</item>
+        <item name="colorOnBackground">@color/pink_900</item>
+        <item name="colorSurface">@color/pink_50</item>
+        <item name="colorOnSurface">@color/pink_900</item>
+        <item name="colorSurfaceVariant">@color/pink_100</item>
+        <item name="colorOnSurfaceVariant">@color/pink_700</item>
+        <item name="colorOutline">@color/pink_400</item>
+        <item name="colorOnSurfaceInverse">@color/pink_100</item>
+        <item name="colorSurfaceInverse">@color/pink_900</item>
+        <item name="colorPrimaryInverse">@color/pink_300</item>
+
+
+    </style>
+
+    <style name="Theme.Sweetify" parent="Base.Theme.Sweetify" />
+
+    <style name="background">
+        <item name="android:background">@color/pink_50</item>
+    </style>
+</resources>

@@ -18,11 +18,6 @@
         tools:layout="@layout/fragment_glupedia" />
 
     <fragment
-        android:id="@+id/navigation_scan"
-        android:name="com.abidbe.sweetify.ScanFragment"
-        android:label="@string/scan"
-        tools:layout="@layout/fragment_scan" />
-    <fragment
         android:id="@+id/navigation_history"
         android:name="com.abidbe.sweetify.HistoryFragment"
         android:label="@string/history"

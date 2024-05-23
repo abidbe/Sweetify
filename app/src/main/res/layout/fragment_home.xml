@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-
     style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -28,63 +25,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/pink_400"
-
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/imvUserPhoto"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
+                        android:contentDescription="@string/user_photo"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/potouser" />
+                        app:srcCompat="@drawable/user_photo" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/tvGreeting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:text="Hi, Abid"
+                        android:text="@string/greeting_text"
                         android:textColor="@color/pink_50"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                        app:layout_constraintStart_toEndOf="@+id/imageView"
-                        app:layout_constraintTop_toTopOf="@+id/imageView" />
+                        app:layout_constraintBottom_toBottomOf="@+id/imvUserPhoto"
+                        app:layout_constraintStart_toEndOf="@+id/imvUserPhoto"
+                        app:layout_constraintTop_toTopOf="@+id/imvUserPhoto" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvGreetHeader"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="48dp"
                     android:layout_marginBottom="-6dp"
-                    android:text="Check your drink\nright now!"
+                    android:text="@string/greeting_header"
                     android:textColor="@color/pink_50"
-                    android:textSize="30sp"
+                    android:textSize="26sp"
                     android:textStyle="bold" />
 
-                <com.google.android.material.appbar.AppBarLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#00000000"
-                    android:paddingHorizontal="8dp">
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.search.SearchBar
                         android:id="@+id/search_bar"
-                        android:layout_width="match_parent"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
                         android:backgroundTint="@color/pink_100"
-                        android:hint="@string/searchbar_hint" />
-                </com.google.android.material.appbar.AppBarLayout>
+                        android:hint="@string/searchbar_hint"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/scan_icon"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/circle_shape"
+                        android:contentDescription="@string/button_scan"
+                        android:src="@drawable/scan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/search_bar"
+                        app:tint="@color/pink_500" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -92,28 +106,39 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/imvBottomHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/bottom_header"
                     android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ptongan2" />
+                    app:srcCompat="@drawable/bottom_header" />
+
+                <TextView
+                    android:id="@+id/grades_sugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/grades_sugar"
+                    android:textColor="@color/pink_100"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingHorizontal="24dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cardA"
@@ -133,7 +158,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_margin="14dp"
-                                android:background="@drawable/bulat"
+                                android:background="@drawable/circle_shape_2"
                                 android:paddingTop="3dp">
 
                                 <TextView
@@ -141,7 +166,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="A"
+                                    android:text="@string/grade_a"
                                     android:textColor="@color/pink_950"
                                     android:textSize="25sp"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -156,7 +181,7 @@
                                 android:layout_marginTop="-12dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center"
-                                android:text="Grade"
+                                android:text="@string/grade"
                                 android:textColor="@color/pink_950"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -184,7 +209,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_margin="14dp"
-                                android:background="@drawable/bulat"
+                                android:background="@drawable/circle_shape_2"
                                 android:paddingTop="3dp">
 
                                 <TextView
@@ -192,7 +217,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="B"
+                                    android:text="@string/grade_b"
                                     android:textColor="@color/pink_950"
                                     android:textSize="25sp"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -207,11 +232,10 @@
                                 android:layout_marginTop="-12dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center"
-                                android:text="Grade"
+                                android:text="@string/grade"
                                 android:textColor="@color/pink_950"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
-
 
                         </LinearLayout>
 
@@ -235,7 +259,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_margin="14dp"
-                                android:background="@drawable/bulat"
+                                android:background="@drawable/circle_shape_2"
                                 android:paddingTop="3dp">
 
                                 <TextView
@@ -243,7 +267,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="C"
+                                    android:text="@string/grade_c"
                                     android:textColor="@color/pink_950"
                                     android:textSize="25sp"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -258,7 +282,7 @@
                                 android:layout_marginTop="-12dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center"
-                                android:text="Grade"
+                                android:text="@string/grade"
                                 android:textColor="@color/pink_950"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -286,7 +310,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_margin="14dp"
-                                android:background="@drawable/bulat"
+                                android:background="@drawable/circle_shape_2"
                                 android:paddingTop="3dp">
 
                                 <TextView
@@ -294,7 +318,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
                                     android:gravity="center"
-                                    android:text="D"
+                                    android:text="@string/grade_d"
                                     android:textColor="@color/pink_950"
                                     android:textSize="25sp"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -309,11 +333,10 @@
                                 android:layout_marginTop="-12dp"
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center"
-                                android:text="Grade"
+                                android:text="@string/grade"
                                 android:textColor="@color/pink_950"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
-
 
                         </LinearLayout>
 
@@ -342,27 +365,28 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/poppins_semibold"
-                            android:text="Glu-pedia"
-                            android:textColor="@color/pink_400"
-                            android:textSize="20sp" />
+                            android:text="@string/glupedia"
+                            android:textColor="@color/pink_950"
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/textView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="View All >"
+                            android:text="@string/view_all"
+                            android:textColor="@color/pink_950"
                             android:textAlignment="textEnd"
                             android:textStyle="bold" />
                     </LinearLayout>
-
+                    <!---NANTI DIGANTI MAKE RECYCLER VIEW-->
                     <HorizontalScrollView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scrollbars="none">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:paddingHorizontal="18dp">
@@ -498,10 +522,8 @@
 
                         </LinearLayout>
                     </HorizontalScrollView>
-
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

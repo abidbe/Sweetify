@@ -5,11 +5,23 @@
     <string name="scan">Scan</string>
     <string name="history">History</string>
     <string name="profile">Profile</string>
-    <string name="searchbar_hint">Search...</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="searchbar_hint">Search</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_glupedia">hello glupedia</string>
     <string name="hello_history">hello history</string>
     <string name="hello_profile">hello profile</string>
     <string name="hello_scan">hello scan</string>
+    <string name="greeting_text">Hi, User!</string>
+    <string name="greeting_header">Check your drink\nsugar level now!</string>
+    <string name="view_all"><u><![CDATA[View All >]]></u></string>
+    <string name="description_scan">Scan FAB\n</string>
+    <string name="grades_sugar">Get to know the levels!</string>
+    <string name="button_scan">Button Scan</string>
+    <string name="grade">Grade</string>
+    <string name="user_photo">User Photo Profile</string>
+    <string name="bottom_header">Bottom Header</string>
+    <string name="grade_a">A</string>
+    <string name="grade_b">B</string>
+    <string name="grade_c">C</string>
+    <string name="grade_d">D</string>
 </resources>

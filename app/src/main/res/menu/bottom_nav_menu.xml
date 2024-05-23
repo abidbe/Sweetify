@@ -10,7 +10,7 @@
         android:title="@string/glupedia" />
     <item
         android:id="@+id/navigation_scan"
-        android:icon="@drawable/scan"
+        android:enabled="false"
         android:title="@string/scan" />
     <item
         android:id="@+id/navigation_history"

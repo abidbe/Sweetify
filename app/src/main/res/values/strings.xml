@@ -24,4 +24,7 @@
     <string name="grade_b">B</string>
     <string name="grade_c">C</string>
     <string name="grade_d">D</string>
+    <string name="logout">Logout</string>
+    <string name="email_abid">abidbe.123@gmail.com</string>
+    <string name="nama_abid">Abid Ibadurrahman</string>
 </resources>

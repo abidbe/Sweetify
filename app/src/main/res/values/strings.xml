@@ -27,4 +27,13 @@
     <string name="logout">Logout</string>
     <string name="email_abid">abidbe.123@gmail.com</string>
     <string name="nama_abid">Abid Ibadurrahman</string>
+    <string name="signup_now">Sign Up Now!</string>
+    <string name="register_header">Please fill out the form!</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="cancel">Cancel</string>
+    <string name="login_now">Login Now!</string>
+    <string name="login">Login</string>
 </resources>

@@ -88,8 +88,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:backgroundTint="@color/pink_400"
+            android:textColor="@color/pink_50"
             app:icon="@drawable/logout"
             android:paddingHorizontal="120dp"
+            app:iconTint="@color/pink_50"
             android:text="@string/logout"
             />
     </LinearLayout>

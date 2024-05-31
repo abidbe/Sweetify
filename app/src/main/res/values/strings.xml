@@ -27,13 +27,21 @@
     <string name="logout">Logout</string>
     <string name="email_abid">abidbe.123@gmail.com</string>
     <string name="nama_abid">Abid Ibadurrahman</string>
-    <string name="signup_now">Sign Up Now!</string>
-    <string name="register_header">Please fill out the form!</string>
+    <string name="signup_now">Sign Up \n Now!</string>
+    <string name="register_header">Please fill out the form first!</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="sign_up">Create Account</string>
     <string name="cancel">Cancel</string>
-    <string name="login_now">Login Now!</string>
+    <string name="login_now">Login \n\u00A0\u00A0\u00A0\u00A0\u00A0Now!</string>
     <string name="login">Login</string>
+    <string name="history_log">History</string>
+    <string name="login_header">Welcome back!</string>
+    <string name="or">Or</string>
+    <string name="sign_in_with">Login with</string>
+    <string name="google"><u><![CDATA[Google >]]></u></string>
+    <string name="login_with_google">Google</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="goto_sign_up"><u><![CDATA[Sign Up]]></u></string>
 </resources>

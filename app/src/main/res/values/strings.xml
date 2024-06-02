@@ -44,4 +44,15 @@
     <string name="login_with_google">Google</string>
     <string name="dont_have_an_account">Don\'t have an account?</string>
     <string name="goto_sign_up"><u><![CDATA[Sign Up]]></u></string>
+    <string name="upload_your_image">Upload your image</string>
+    <string name="recommended">Recommended</string>
+    <string name="analyze">Analyze</string>
+    <string name="enter_amount">Enter the amount (ml)</string>
+    <string name="use_a_camera">Use a Camera</string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="sugar">Sugar</string>
+    <string name="grams">Grams</string>
+    <string name="amount">Amount</string>
+    <string name="buy">Buy</string>
+
 </resources>

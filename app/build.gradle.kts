@@ -53,4 +53,6 @@ dependencies {
 
     implementation (libs.circleimageview)
     implementation (libs.mpandroidchart)
-}
+
+
+    }

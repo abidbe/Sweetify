@@ -1,4 +1,4 @@
-package com.abidbe.sweetify
+package com.abidbe.sweetify.view.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

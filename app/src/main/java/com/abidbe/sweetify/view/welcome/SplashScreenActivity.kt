@@ -1,12 +1,10 @@
-package com.abidbe.sweetify
+package com.abidbe.sweetify.view.welcome
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.abidbe.sweetify.databinding.ActivitySplashScreenBinding
+import com.abidbe.sweetify.view.main.MainActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding

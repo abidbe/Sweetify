@@ -1,14 +1,13 @@
-package com.abidbe.sweetify
+package com.abidbe.sweetify.view.history
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import com.abidbe.sweetify.R
 import com.abidbe.sweetify.databinding.FragmentHistoryBinding
-import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry

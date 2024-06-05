@@ -50,9 +50,13 @@
     <string name="enter_amount">Enter the amount (ml)</string>
     <string name="use_a_camera">Use a Camera</string>
     <string name="choose_photo">Choose Photo</string>
-    <string name="sugar">Sugar</string>
+    <string name="sugar">Sugar Per Serving</string>
     <string name="grams">Grams</string>
-    <string name="amount">Amount</string>
+    <string name="amount">Sugar Based on Amount</string>
     <string name="buy">Buy</string>
+    <string name="product_name">Green Tea</string>
+    <string name="not_recommended">Not Recommended</string>
+    <string name="scan_result">Analyze Result</string>
+    <string name="grams_example">4000</string>
 
 </resources>

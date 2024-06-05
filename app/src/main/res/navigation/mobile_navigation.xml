@@ -7,24 +7,24 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.abidbe.sweetify.HomeFragment"
+        android:name="com.abidbe.sweetify.view.main.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_glupedia"
-        android:name="com.abidbe.sweetify.GlupediaFragment"
+        android:name="com.abidbe.sweetify.view.glupedia.GlupediaFragment"
         android:label="@string/glupedia"
         tools:layout="@layout/fragment_glupedia" />
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.abidbe.sweetify.HistoryFragment"
+        android:name="com.abidbe.sweetify.view.history.HistoryFragment"
         android:label="@string/history"
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.abidbe.sweetify.ProfileFragment"
+        android:name="com.abidbe.sweetify.view.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -1,29 +1,37 @@
-package com.abidbe.sweetify
+package com.abidbe.sweetify.view.scan
 
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.commit
+import androidx.fragment.app.commitNow
+import com.abidbe.sweetify.data.api.response.ApiConfig
+import com.abidbe.sweetify.data.api.response.ScanResponse
+import com.abidbe.sweetify.data.repository.ScanRepository
 import com.abidbe.sweetify.databinding.ActivityScanBinding
+import com.abidbe.sweetify.factory.ViewModelFactory
+import com.abidbe.sweetify.utils.getImageUri
+import com.abidbe.sweetify.utils.uriToFile
 
 class ScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanBinding
     private var currentImageUri: Uri? = null
+    private val scanViewModel by viewModels<ScanViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityScanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.buttonAnalyze.setOnClickListener {
-            showResultDialog()
+            goToAnalyze(currentImageUri!!)
         }
         binding.buttonGallery.setOnClickListener { startGallery() }
         binding.buttonCamera.setOnClickListener { startCamera() }
@@ -31,7 +39,7 @@ class ScanActivity : AppCompatActivity() {
 
     private fun startCamera() {
         currentImageUri = getImageUri(this)
-        launcherIntentCamera.launch(currentImageUri)
+        launcherIntentCamera.launch(currentImageUri!!)
     }
 
     private val launcherIntentCamera = registerForActivityResult(
@@ -42,9 +50,21 @@ class ScanActivity : AppCompatActivity() {
         }
     }
 
-    private fun showResultDialog() {
-        val resultDialog: DialogFragment = ResultAnalyzeFragment()
-        resultDialog.show(supportFragmentManager, "ResultDialog")
+    private fun goToAnalyze(imageUri: Uri) {
+        val amount = binding.edInputSugar.text.toString().toDouble()
+        val fragment = ResultFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable(ResultFragment.ARG_IMAGE_URI, imageUri)
+                putDouble(ResultFragment.ARG_AMOUNT, amount)
+            }
+        }
+        val supportFragmentManager = supportFragmentManager
+        val existingFragment = supportFragmentManager.findFragmentByTag(ResultFragment::class.java.simpleName)
+        if (existingFragment !is ResultFragment) {
+            supportFragmentManager.commit {
+                add(binding.fragmentContainer.id, fragment, ResultFragment::class.java.simpleName)
+            }
+        }
     }
 
     private fun startGallery() {

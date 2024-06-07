@@ -21,9 +21,6 @@ import com.abidbe.sweetify.utils.uriToFile
 class ScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanBinding
     private var currentImageUri: Uri? = null
-    private val scanViewModel by viewModels<ScanViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

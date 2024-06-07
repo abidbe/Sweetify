@@ -53,10 +53,15 @@
     <string name="sugar">Sugar Per Serving</string>
     <string name="grams">Grams</string>
     <string name="amount">Sugar Based on Amount</string>
-    <string name="buy">Buy</string>
+    <string name="buy">Purchase</string>
     <string name="product_name">Green Tea</string>
     <string name="not_recommended">Not Recommended</string>
     <string name="scan_result">Analyze Result</string>
     <string name="grams_example">4000</string>
+    <string name="log">Your Daily Purchase</string>
+    <string name="dateSample">07/06/2024</string>
+    <string name="amount_history">Sugar</string>
+    <string name="no_data">You haven\'t make any purchase today yet!</string>
+    <string name="exceed_data">You have reach daily limit!</string>
 
 </resources>

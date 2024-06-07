@@ -10,10 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.abidbe.sweetify.R
+import com.abidbe.sweetify.data.api.response.ScanResponse
+import com.abidbe.sweetify.data.local.Drink
+import com.abidbe.sweetify.data.local.User
 import com.abidbe.sweetify.databinding.FragmentResultBinding
 import com.abidbe.sweetify.factory.ViewModelFactory
 import com.abidbe.sweetify.utils.uriToFile
 import com.abidbe.sweetify.view.main.MainActivity
+import java.util.Calendar
 import kotlin.time.times
 
 class ResultFragment : Fragment() {
@@ -32,10 +36,6 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonBuy.setOnClickListener {
-            val intent = Intent(activity, MainActivity::class.java)
-            startActivity(intent)
-        }
         binding.buttonCancel.setOnClickListener {
             activity?.onBackPressed()
         }
@@ -65,11 +65,68 @@ class ResultFragment : Fragment() {
                 amountSugar?.toDouble()
                 val sugar = (amount?.div(100))?.times(amountSugar?.toDouble()!!)
                 binding.tvAmountResult.text = sugar.toString()
+                binding.buttonBuy.setOnClickListener {
+                    if (sugar != null) {
+                        saveToLocal(scanResult, sugar)
+                    }
+                    goToMainActivity()
+                }
             }
         }
         scanViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
         }
+    }
+
+    private fun saveToLocal(scanResponse: ScanResponse?, sugar: Double) {
+        scanResponse?.let { response ->
+            // Extract data from ScanResponse
+            val product = response.product
+            val sugarAmount = response.gulaSajianG
+            val grade = response.grade
+
+            // Assuming you have a user object available or a method to obtain it
+            val user = User(uid = 1, username = "Salman")
+            // Save user data to local database
+            scanViewModel.saveUserToLocalDatabase(user)
+
+            // Create a Drink object using the extracted data
+            val drink = product?.let {
+                sugarAmount?.let {it1 ->
+                    Drink(
+                        userId = user.uid, // Assuming you associate drinks with users based on their IDs
+                        name = product, // Using product name as drink name
+                        grade = grade!!, // Using first character of grade as drink grade
+                        sugarAmountBased = sugar, // Converting sugar amount to double
+                        purchaseDate = getCurrentDate() // Assuming purchase date is current time
+                    )
+                }
+            }
+            // Save drink data to local database
+            if (drink != null) {
+                scanViewModel.saveDrinkToLocalDatabase(drink)
+            }
+        }
+    }
+
+    private fun goToMainActivity() {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        startActivity(intent)
+    }
+    private fun getCurrentDate(): String {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH) + 1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        return "$year/${month.toString().padStart(2, '0')}/${day.toString().padStart(2, '0')}"
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        scanViewModel.scanResponse.removeObservers(viewLifecycleOwner)
+        scanViewModel.isLoading.removeObservers(viewLifecycleOwner)
+        activity?.finish()
     }
 
 

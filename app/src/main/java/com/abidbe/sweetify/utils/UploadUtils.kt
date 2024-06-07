@@ -7,7 +7,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
-import com.github.mikephil.charting.BuildConfig
+import com.abidbe.sweetify.BuildConfig
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream

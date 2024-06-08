@@ -41,7 +41,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/photo"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
                     android:src="@drawable/potoprofile"
@@ -52,7 +52,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tvname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
@@ -62,7 +62,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tvemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -84,7 +84,7 @@
 
         <Button
             style="@style/Widget.Material3.Button.TonalButton.Icon"
-            android:id="@+id/outlinedButton"
+            android:id="@+id/logout_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

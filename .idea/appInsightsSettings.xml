@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.abidbe.sweetify" />
+                  <option name="mobileSdkAppId" value="1:753469274486:android:23f85326b2c4b05746e257" />
+                  <option name="projectId" value="sweetify-aa38d" />
+                  <option name="projectNumber" value="753469274486" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

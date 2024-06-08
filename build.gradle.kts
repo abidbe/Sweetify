@@ -4,4 +4,5 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     id("com.google.devtools.ksp") version "1.9.10-1.0.13" apply false
     id("com.android.library") version "8.1.4" apply false
+    alias(libs.plugins.googleGmsGoogleServices) apply false
 }

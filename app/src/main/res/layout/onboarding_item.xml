@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/image_onboarding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/logo_sweetify3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_onboarding_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sadsad"
+        android:textSize="24sp"
+        android:textColor="@color/pink_50"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/text_onboarding_description"
+        app:layout_constraintEnd_toEndOf="@+id/image_onboarding"
+        app:layout_constraintStart_toStartOf="@+id/image_onboarding" />
+
+    <TextView
+        android:id="@+id/text_onboarding_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:paddingHorizontal="32dp"
+        android:text="sadsad"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textColor="@color/pink_50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text_onboarding_title"
+        app:layout_constraintStart_toStartOf="@+id/text_onboarding_title" />
+</androidx.constraintlayout.widget.ConstraintLayout>

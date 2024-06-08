@@ -63,5 +63,14 @@
     <string name="amount_history">Sugar</string>
     <string name="no_data">You haven\'t make any purchase today yet!</string>
     <string name="exceed_data">You have reach daily limit!</string>
+    <string name="title_onboarding1">Welcome to Sweetify</string>
+    <string name="title_onboarding2">Easy to Use</string>
+    <string name="title_onboarding3">Get Started Now</string>
+    <string name="desc_onboarding1">An app that helps you detect sugar levels in packaged drinks.</string>
+    <string name="desc_onboarding2">Just scan the packaging of your drink and get sugar information quickly.</string>
+    <string name="desc_onboarding3">Improve your health by monitoring your daily sugar intake from drinks.</string>
+    <string name="next">Next</string>
+    <string name="login_google">Login with Google</string>
+    <string name="your_web_client_id">753469274486-o4v8q7o62ib1c6ti3qljn94bm17bvk2c.apps.googleusercontent.com</string>
 
 </resources>

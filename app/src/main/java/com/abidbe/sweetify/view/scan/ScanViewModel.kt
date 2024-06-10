@@ -7,10 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.abidbe.sweetify.data.api.response.ScanResponse
 import com.abidbe.sweetify.data.local.Drink
-import com.abidbe.sweetify.data.local.User
 import com.abidbe.sweetify.data.repository.ScanRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -34,22 +35,9 @@ class ScanViewModel(private val scanRepository: ScanRepository): ViewModel() {
         }
     }
 
-    // Method to save user to local database
-    fun saveUserToLocalDatabase(user: User) {
-        viewModelScope.launch(Dispatchers.IO) {
-            scanRepository.saveUserToLocalDatabase(user)
-        }
-    }
-
-    // Method to save drink to local database
     fun saveDrinkToLocalDatabase(drink: Drink) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.Main) {
             scanRepository.saveDrinkToLocalDatabase(drink)
         }
-    }
-
-    // Method to fetch data from local database
-    suspend fun getDataFromLocalDatabase(userId: Int): List<Drink> {
-        return scanRepository.getDataFromLocalDatabase(userId)
     }
 }

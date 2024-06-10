@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.abidbe.sweetify.R
 import com.abidbe.sweetify.databinding.FragmentHomeBinding
 import com.abidbe.sweetify.view.welcome.OnboardingActivity
 import com.bumptech.glide.Glide
@@ -35,7 +36,7 @@ class HomeFragment : Fragment() {
         }
         val displayName = firebaseUser.displayName
         // Display user's profile information
-        binding.tvGreeting.text = "Hi, $displayName!"
+        binding.tvGreeting.text = getString(R.string.greeting_text, displayName)
 
         firebaseUser.photoUrl?.let { photoUrl ->
             // Use Glide to load the profile image

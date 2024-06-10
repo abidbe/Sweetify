@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "753469274486",
+    "project_id": "sweetify-aa38d",
+    "storage_bucket": "sweetify-aa38d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753469274486:android:23f85326b2c4b05746e257",
+        "android_client_info": {
+          "package_name": "com.abidbe.sweetify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753469274486-0n2jg2cs60dvj68ale3dfpm3par4gqm6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abidbe.sweetify",
+            "certificate_hash": "6d3f1193c8081ea738518cabd0e280172c54d56b"
+          }
+        },
+        {
+          "client_id": "753469274486-crps6cmg762fruanuq7r69gkiqi5kpu8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abidbe.sweetify",
+            "certificate_hash": "a7aaa3669cf68e75bc6d66fd7a7e8ec78daee984"
+          }
+        },
+        {
+          "client_id": "753469274486-o4v8q7o62ib1c6ti3qljn94bm17bvk2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXrFehxnKvlK8wLXnd5eepYJP9nwPKzMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753469274486-o4v8q7o62ib1c6ti3qljn94bm17bvk2c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

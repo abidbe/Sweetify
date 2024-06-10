@@ -11,13 +11,13 @@
     <string name="hello_history">hello history</string>
     <string name="hello_profile">hello profile</string>
     <string name="hello_scan">hello scan</string>
-    <string name="greeting_text">Hi, User!</string>
+    <string name="greeting_text">Hi, %1$s !</string>
     <string name="greeting_header">Check your drink\nsugar level now!</string>
     <string name="view_all"><u><![CDATA[View All >]]></u></string>
     <string name="description_scan">Scan FAB\n</string>
     <string name="grades_sugar">Get to know the levels!</string>
     <string name="button_scan">Button Scan</string>
-    <string name="grade">Grade</string>
+    <string name="grade">Grade %1$s</string>
     <string name="user_photo">User Photo Profile</string>
     <string name="bottom_header">Bottom Header</string>
     <string name="grade_a">A</string>
@@ -36,7 +36,7 @@
     <string name="cancel">Cancel</string>
     <string name="login_now">Login \n\u00A0\u00A0\u00A0\u00A0\u00A0Now!</string>
     <string name="login">Login</string>
-    <string name="history_log">History</string>
+    <string name="history_log">Tracker</string>
     <string name="login_header">Welcome back!</string>
     <string name="or">Or</string>
     <string name="sign_in_with">Login with</string>
@@ -44,12 +44,12 @@
     <string name="login_with_google">Google</string>
     <string name="dont_have_an_account">Don\'t have an account?</string>
     <string name="goto_sign_up"><u><![CDATA[Sign Up]]></u></string>
-    <string name="upload_your_image">Upload your image</string>
+    <string name="upload_your_image">Scan</string>
     <string name="recommended">Recommended</string>
     <string name="analyze">Analyze</string>
     <string name="enter_amount">Enter the amount (ml)</string>
     <string name="use_a_camera">Use a Camera</string>
-    <string name="choose_photo">Choose Photo</string>
+    <string name="choose_photo">Choose a Photo</string>
     <string name="sugar">Sugar Per Serving</string>
     <string name="grams">Grams</string>
     <string name="amount">Sugar Based on Amount</string>
@@ -59,7 +59,7 @@
     <string name="scan_result">Analyze Result</string>
     <string name="grams_example">4000</string>
     <string name="log">Your Daily Purchase</string>
-    <string name="dateSample">07/06/2024</string>
+    <string name="dateSample">----/--/--</string>
     <string name="amount_history">Sugar</string>
     <string name="no_data">You haven\'t make any purchase today yet!</string>
     <string name="exceed_data">You have reach daily limit!</string>
@@ -72,5 +72,16 @@
     <string name="next">Next</string>
     <string name="login_google">Login with Google</string>
     <string name="your_web_client_id">753469274486-o4v8q7o62ib1c6ti3qljn94bm17bvk2c.apps.googleusercontent.com</string>
+    <string name="delete_data_desc">Delete Data</string>
+    <string name="gram_sugar">0.333</string>
+    <string name="grade_text">Grade</string>
+    <string name="track_your_sugar_n_consumption">Track your sugar \n \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0  consumption!</string>
+    <string name="daily_limit">Daily limit: 50 grams</string>
+    <string name="today_s_consumption">Today\'s Consumption</string>
+    <string name="you_are_below_the_daily_limit">You are below the daily limit</string>
+    <string name="sugar_consumed">Sugar Consumed</string>
+    <string name="_50_0">50.0</string>
+    <string name="available_sugar">Available Sugar</string>
+    <string name="hint_text">Please select or capture an image</string>
 
 </resources>

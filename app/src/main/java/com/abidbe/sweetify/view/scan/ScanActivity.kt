@@ -1,8 +1,11 @@
 package com.abidbe.sweetify.view.scan
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -28,7 +31,7 @@ class ScanActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonAnalyze.setOnClickListener {
-            goToAnalyze(currentImageUri!!)
+            goToAnalyze(currentImageUri)
         }
         binding.buttonGallery.setOnClickListener { startGallery() }
         binding.buttonCamera.setOnClickListener { startCamera() }
@@ -47,8 +50,17 @@ class ScanActivity : AppCompatActivity() {
         }
     }
 
-    private fun goToAnalyze(imageUri: Uri) {
-        val amount = binding.edInputSugar.text.toString().toDouble()
+    private fun goToAnalyze(imageUri: Uri?) {
+        val amountText = binding.edInputSugar.text.toString()
+        if (imageUri == null || amountText.isEmpty()) {
+            showErrorDialog("No image selected", "Please select an image!")
+            return
+        }
+        val amount = amountText.toDoubleOrNull()
+        if (amount == null) {
+            showErrorDialog("Invalid amount", "Please enter a valid amount!")
+            return
+        }
         val fragment = ResultFragment().apply {
             arguments = Bundle().apply {
                 putParcelable(ResultFragment.ARG_IMAGE_URI, imageUri)
@@ -63,6 +75,36 @@ class ScanActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun showErrorDialog(title: String, message: String) {
+        val errorDialog = ErrorDialogFragment().apply {
+            arguments = Bundle().apply {
+                putString("title", title)
+                putString("message", message)
+            }
+        }
+        errorDialog.show(supportFragmentManager, ErrorDialogFragment.TAG)
+    }
+
+
+    class ErrorDialogFragment : DialogFragment() {
+        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            val title = arguments?.getString("title") ?: "Error"
+            val message = arguments?.getString("message") ?: "An unexpected error occurred."
+
+            return AlertDialog.Builder(requireContext())
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                .create()
+        }
+
+        companion object {
+            const val TAG = "ErrorDialogFragment"
+        }
+    }
+
+
 
     private fun startGallery() {
         launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
@@ -82,7 +124,11 @@ class ScanActivity : AppCompatActivity() {
     private fun showImage() {
         currentImageUri?.let {
             Log.d("Image URI", "showImage: $it")
-            binding.imagePreview.setImageURI(it)
+            binding.imgPreview.setImageURI(it)
+            binding.edInputSugar.isEnabled = true
+            binding.edLayoutSugar.isHelperTextEnabled = false
+            binding.buttonGallery.visibility = View.GONE
         }
     }
+
 }

@@ -1,12 +1,9 @@
 package com.abidbe.sweetify.data.repository
 
 import com.abidbe.sweetify.data.api.ApiService
-import com.abidbe.sweetify.data.api.response.ApiConfig
 import com.abidbe.sweetify.data.api.response.ScanResponse
 import com.abidbe.sweetify.data.local.Drink
-import com.abidbe.sweetify.data.local.SweetifyDao
 import com.abidbe.sweetify.data.local.SweetifyDatabase
-import com.abidbe.sweetify.data.local.User
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
@@ -25,41 +22,30 @@ class ScanRepository private constructor(
                 MultipartBody.Part.createFormData(
                     "file",
                     imageFile.name,
-                    requestImageFile)
+                    requestImageFile
+                )
             val successResponse = apiService.uploadImage(multipartBody)
             Result.success(successResponse)
-        } catch (e: HttpException){
+        } catch (e: HttpException) {
             Result.failure(e)
         }
     }
 
-    // Example method to save data to local database
-    suspend fun saveUserToLocalDatabase(user: User) {
-        // Perform database operation using sweetifyDao
-        sweetifyDatabase.sweetifyDao().insertUser(user)
-    }
 
     suspend fun saveDrinkToLocalDatabase(drink: Drink) {
-        // Perform database operation using sweetifyDao
         sweetifyDatabase.sweetifyDao().insertDrink(drink)
     }
 
-    // Example method to fetch data from local database
-    suspend fun getDataFromLocalDatabase(userId: Int): List<Drink> {
-        // Perform database operation using sweetifyDao
-        return sweetifyDatabase.sweetifyDao().getDrinksByUserId(userId)
-    }
-
-    fun getDailyHistory(userId: Int, purchaseDate: String): Flow<List<Drink>> {
+    fun getDailyHistory(userId: String, purchaseDate: String): Flow<List<Drink>> {
         return sweetifyDatabase.sweetifyDao().getDailyHistory(userId, purchaseDate)
     }
 
-    fun getTotalSugarAmount(userId: Int, purchaseDate: String): Flow<Double?> {
+    fun getTotalSugarAmount(userId: String, purchaseDate: String): Flow<Double?> {
         return sweetifyDatabase.sweetifyDao().getTotalSugarAmount(userId, purchaseDate)
     }
 
-    fun getUserId(): Flow<Int?> {
-        return sweetifyDatabase.sweetifyDao().getUserId()
+    suspend fun deleteDrink(drink: Drink) {
+        sweetifyDatabase.sweetifyDao().deleteDrink(drink)
     }
 
     companion object {

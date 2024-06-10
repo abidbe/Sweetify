@@ -17,23 +17,34 @@ class HistoryViewModel(private val scanRepository: ScanRepository) : ViewModel()
     val pieData: LiveData<List<PieEntry>> = _pieData
     private val _isLimit = MutableLiveData<Boolean>()
     val isLimit: LiveData<Boolean> = _isLimit
+    private val _isNoData = MutableLiveData<Boolean>()
+    val isNoData: LiveData<Boolean> = _isNoData
+    private val _totalSugarAmount = MutableLiveData<Double>()
+    val totalSugarAmount: LiveData<Double> = _totalSugarAmount
+    private val _availableSugar = MutableLiveData<Double>()
+    val availableSugar: LiveData<Double> = _availableSugar
+
 
     private val dailyLimit = 50.0
 
-    fun fetchDailyHistory(userId: Int, purchaseDate: String) {
+    fun fetchDailyHistory(userId: String, purchaseDate: String) {
         viewModelScope.launch {
             scanRepository.getDailyHistory(userId, purchaseDate).collect { drinks ->
                 _dailyHistory.value = drinks
+                if (drinks.isEmpty()) {
+                    _isNoData.value = true
+                }else{
+                    _isNoData.value = false
+                }
             }
         }
     }
 
-    fun getUserId() = scanRepository.getUserId()
-
-    fun fetchPieData(userId: Int, purchaseDate: String) {
+    fun fetchPieData(userId: String, purchaseDate: String) {
         viewModelScope.launch {
             val totalSugarAmount = scanRepository.getTotalSugarAmount(userId, purchaseDate).first() ?: 0.0
             val availableSugarAmount = calculateAvailableSugar(totalSugarAmount)
+            _availableSugar.value = availableSugarAmount
 
             val pieEntries = if (totalSugarAmount > dailyLimit) {
                 _isLimit.value = true
@@ -41,19 +52,30 @@ class HistoryViewModel(private val scanRepository: ScanRepository) : ViewModel()
                     PieEntry(totalSugarAmount.toFloat(), "Gram Consumed")
                 )
             } else {
+                _isLimit.value = false
                 listOf(
                     PieEntry(totalSugarAmount.toFloat(), "Gram Consumed"),
                     PieEntry(availableSugarAmount.toFloat(), "Available Gram")
                 )
             }
-
             _pieData.value = pieEntries
         }
     }
 
-    private fun calculateAvailableSugar(totalSugar: Double): Double {
+    fun fetchTotalSugarAmount(userId: String, purchaseDate: String) {
+        viewModelScope.launch {
+            val totalSugar = scanRepository.getTotalSugarAmount(userId, purchaseDate).first() ?: 0.0
+            _totalSugarAmount.value = totalSugar
+        }
+    }
+
+    fun calculateAvailableSugar(totalSugar: Double): Double {
         return if (totalSugar >= dailyLimit) 0.0 else dailyLimit - totalSugar
     }
 
-
+    fun deleteDrink(drink: Drink) {
+        viewModelScope.launch {
+            scanRepository.deleteDrink(drink)
+        }
+    }
 }

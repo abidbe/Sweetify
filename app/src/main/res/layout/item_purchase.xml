@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
-        app:cardMaxElevation="4dp">
+        app:cardMaxElevation="4dp"
+        android:background="#00FFE3E7">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,16 +22,40 @@
             android:paddingEnd="16dp"
             android:paddingBottom="8dp">
 
-            <TextView
-                android:id="@+id/name_product"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
                 android:paddingTop="2dp"
-                android:text="@string/product_name"
-                android:textColor="@color/pink_950"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:paddingBottom="4dp">
+
+                <TextView
+                    android:id="@+id/name_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="@string/product_name"
+                    android:textColor="@color/pink_950"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageButton
+                    android:id="@+id/button_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/delete_data_desc"
+                    android:src="@android:drawable/ic_menu_delete"
+                    android:background="#00FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:tint="@color/pink_950" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -40,12 +65,12 @@
                     android:id="@+id/tv_grade_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
                     android:layout_marginBottom="-12dp"
                     android:text="@string/grade_a"
                     android:textColor="@color/pink_950"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:layout_marginEnd="3dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/tvCard1"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="@string/grade"
+                    android:text="@string/grade_text"
                     android:textColor="@color/pink_950"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -77,7 +102,8 @@
                     android:id="@+id/tvCard1"
                     android:layout_width="46dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/grade"
+                    android:layout_marginEnd="3dp"
+                    android:text="@string/grade_text"
                     android:textAlignment="center"
                     android:textColor="@color/pink_950"
                     android:textSize="11sp"
@@ -107,9 +133,9 @@
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/drink"
+                    android:layout_width="24dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/sugar_cube"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

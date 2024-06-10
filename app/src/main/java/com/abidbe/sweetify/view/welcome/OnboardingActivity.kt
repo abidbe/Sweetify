@@ -14,6 +14,7 @@ import androidx.credentials.exceptions.GetCredentialException
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.abidbe.sweetify.R
+import com.abidbe.sweetify.databinding.ActivityOnboardingBinding
 import com.abidbe.sweetify.view.main.MainActivity
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
@@ -29,7 +30,7 @@ import com.google.firebase.auth.auth
 import kotlinx.coroutines.launch
 
 class OnboardingActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityOnboardingBinding
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private lateinit var buttonNext: Button
@@ -37,13 +38,14 @@ class OnboardingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_onboarding)
+        binding = ActivityOnboardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         auth = Firebase.auth
 
-        viewPager = findViewById(R.id.viewPager)
-        tabLayout = findViewById(R.id.tabLayout)
-        buttonNext = findViewById(R.id.buttonNext)
+        viewPager = binding.viewPager
+        tabLayout = binding.tabLayout
+        buttonNext = binding.buttonNext
 
         val pages = listOf(
             OnboardingPage(
@@ -103,6 +105,7 @@ class OnboardingActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
     private fun signIn() {
         val credentialManager = CredentialManager.create(this)
         val googleIdOption = GetGoogleIdOption.Builder()
@@ -125,12 +128,14 @@ class OnboardingActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun handleSignIn(result: GetCredentialResponse) {
         when (val credential = result.credential) {
             is CustomCredential -> {
                 if (credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
                     try {
-                        val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(credential.data)
+                        val googleIdTokenCredential =
+                            GoogleIdTokenCredential.createFrom(credential.data)
                         firebaseAuthWithGoogle(googleIdTokenCredential.idToken)
                     } catch (e: GoogleIdTokenParsingException) {
                         Log.e(TAG, "Received an invalid google id token response", e)
@@ -145,6 +150,7 @@ class OnboardingActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential: AuthCredential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -152,6 +158,7 @@ class OnboardingActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
                     val user: FirebaseUser? = auth.currentUser
+//                    user?.let { saveUserToLocal(it) }
                     updateUI(user)
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
@@ -166,11 +173,13 @@ class OnboardingActivity : AppCompatActivity() {
             finish()
         }
     }
+
     override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }
+
     companion object {
         private const val TAG = "OnboardingActivity"
     }

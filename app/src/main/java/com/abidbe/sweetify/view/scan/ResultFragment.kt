@@ -79,6 +79,7 @@ class ResultFragment : Fragment() {
                 binding.buttonBuy.setOnClickListener {
                     if (sugar != null) {
                         saveToLocal(scanResult, sugar)
+                        goToMainActivity()
                     }
                 }
             }

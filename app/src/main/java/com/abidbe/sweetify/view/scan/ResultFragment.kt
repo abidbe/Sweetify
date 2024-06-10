@@ -33,6 +33,7 @@ class ResultFragment : Fragment() {
     private val historyViewModel by viewModels<HistoryViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
+    private var availableSugar: Double? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +55,15 @@ class ResultFragment : Fragment() {
             analyzeImage(it, amount)
         }
 
+        historyViewModel.availableSugar.observe(viewLifecycleOwner) { available ->
+            availableSugar = available
+        }
+
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        val purchaseDate = getCurrentDate()
+        userId?.let {
+            historyViewModel.fetchPieData(it, purchaseDate)
+        }
     }
 
     private fun analyzeImage(image: Uri, amount: Double?) {
@@ -78,8 +88,7 @@ class ResultFragment : Fragment() {
                 binding.tvSugarAmountResult.text = sugar.toString()
                 binding.buttonBuy.setOnClickListener {
                     if (sugar != null) {
-                        saveToLocal(scanResult, sugar)
-                        goToMainActivity()
+                        buyDrink(scanResult, sugar)
                     }
                 }
             }
@@ -89,18 +98,36 @@ class ResultFragment : Fragment() {
         }
     }
 
-    private fun showReassuranceDialog(scanResult: ScanResponse, sugar: Double) {
+    private fun buyDrink(scanResponse: ScanResponse?, sugar: Double) {
+        scanResponse?.let {
+            availableSugar?.let { available ->
+                if (available == 0.0) {
+                    showReassuranceDialog(scanResponse, sugar,
+                        getString(R.string.no_available_sugar),
+                        getString(R.string.message_nosugar))
+                } else if (available < sugar) {
+                    showReassuranceDialog(scanResponse, sugar,
+                        getString(R.string.not_enough_available_sugar),
+                        getString(R.string.message_notenoughsugar))
+                } else {
+                    saveToLocal(scanResponse, sugar)
+                }
+            }
+        }
+    }
+
+    private fun showReassuranceDialog(scanResponse: ScanResponse, sugar: Double, title: String, message: String) {
         AlertDialog.Builder(requireContext())
-            .setTitle("You have reach your limit!")
-            .setMessage("You don't have more available sugar to consume today. Are you sure you want to buy this drink?")
+            .setTitle(title)
+            .setMessage(message)
             .setPositiveButton("Yes") { dialog, _ ->
-                saveToLocal(scanResult, sugar)
+                saveToLocal(scanResponse, sugar)
                 goToMainActivity()
                 dialog.dismiss()
             }
             .setNegativeButton("No") { dialog, _ ->
-                goToMainActivity()
                 dialog.dismiss()
+                goToMainActivity()
             }
             .create()
             .show()
@@ -126,6 +153,7 @@ class ResultFragment : Fragment() {
             }
             if (drink != null) {
                 scanViewModel.saveDrinkToLocalDatabase(drink)
+                goToMainActivity()
             }
         }
     }
@@ -161,3 +189,4 @@ class ResultFragment : Fragment() {
         const val ARG_AMOUNT = "amount"
     }
 }
+

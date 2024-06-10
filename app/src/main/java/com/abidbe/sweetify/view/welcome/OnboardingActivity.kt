@@ -69,7 +69,6 @@ class OnboardingActivity : AppCompatActivity() {
         viewPager.adapter = adapter
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            // Tab configuration if needed
         }.attach()
 
         for (i in 0 until tabLayout.tabCount) {
@@ -158,7 +157,6 @@ class OnboardingActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
                     val user: FirebaseUser? = auth.currentUser
-//                    user?.let { saveUserToLocal(it) }
                     updateUI(user)
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)

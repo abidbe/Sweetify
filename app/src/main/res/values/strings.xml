@@ -83,5 +83,9 @@
     <string name="_50_0">50.0</string>
     <string name="available_sugar">Available Sugar</string>
     <string name="hint_text">Please select or capture an image</string>
+    <string name="no_available_sugar">No Available Sugar</string>
+    <string name="message_nosugar">You don\'t have more available sugar to consume today. Are you sure you want to buy this drink?</string>
+    <string name="not_enough_available_sugar">Not Enough Available Sugar</string>
+    <string name="message_notenoughsugar">You don\'t have enough available sugar to consume this drink. Are you sure you want to buy this drink?</string>
 
 </resources>

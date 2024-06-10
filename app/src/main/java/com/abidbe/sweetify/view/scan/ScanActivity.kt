@@ -52,8 +52,8 @@ class ScanActivity : AppCompatActivity() {
 
     private fun goToAnalyze(imageUri: Uri?) {
         val amountText = binding.edInputSugar.text.toString()
-        if (imageUri == null || amountText.isEmpty()) {
-            showErrorDialog("No image selected", "Please select an image!")
+        if (imageUri == null && amountText.isEmpty()) {
+            showErrorDialog("No image is selected", "Please select an image!")
             return
         }
         val amount = amountText.toDoubleOrNull()

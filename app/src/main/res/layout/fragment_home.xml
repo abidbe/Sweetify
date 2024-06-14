@@ -33,14 +33,14 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/imvUserPhoto"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
+                        android:src="@drawable/potoprofile"
                         android:contentDescription="@string/user_photo"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                         />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/tvGreeting"
@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="48dp"
+                    android:layout_marginTop="38dp"
                     android:layout_marginBottom="-6dp"
                     android:text="@string/greeting_header"
                     android:textColor="@color/pink_50"

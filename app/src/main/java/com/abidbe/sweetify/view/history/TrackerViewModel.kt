@@ -10,7 +10,7 @@ import com.github.mikephil.charting.data.PieEntry
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
-class HistoryViewModel(private val scanRepository: ScanRepository) : ViewModel(){
+class TrackerViewModel(private val scanRepository: ScanRepository) : ViewModel(){
     private val _dailyHistory = MutableLiveData<List<Drink>>()
     val dailyHistory: LiveData<List<Drink>> = _dailyHistory
     private val _pieData = MutableLiveData<List<PieEntry>>()

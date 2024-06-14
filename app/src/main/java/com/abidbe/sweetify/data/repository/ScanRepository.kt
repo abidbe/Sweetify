@@ -4,6 +4,7 @@ import com.abidbe.sweetify.data.api.ApiService
 import com.abidbe.sweetify.data.api.response.ScanResponse
 import com.abidbe.sweetify.data.local.Drink
 import com.abidbe.sweetify.data.local.SweetifyDatabase
+import com.abidbe.sweetify.data.local.WeeklySugarAmount
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
@@ -46,6 +47,10 @@ class ScanRepository private constructor(
 
     suspend fun deleteDrink(drink: Drink) {
         sweetifyDatabase.sweetifyDao().deleteDrink(drink)
+    }
+
+    fun getWeeklyHistory(userId: String, startDate: String, endDate: String): Flow<List<WeeklySugarAmount>> {
+        return sweetifyDatabase.sweetifyDao().getDailySugarAmounts(userId, startDate, endDate)
     }
 
     companion object {

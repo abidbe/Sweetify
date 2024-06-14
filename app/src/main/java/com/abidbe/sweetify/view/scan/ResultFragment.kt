@@ -1,16 +1,13 @@
 package com.abidbe.sweetify.view.scan
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.abidbe.sweetify.R
 import com.abidbe.sweetify.data.api.response.ScanResponse
@@ -18,7 +15,7 @@ import com.abidbe.sweetify.data.local.Drink
 import com.abidbe.sweetify.databinding.FragmentResultBinding
 import com.abidbe.sweetify.factory.ViewModelFactory
 import com.abidbe.sweetify.utils.uriToFile
-import com.abidbe.sweetify.view.history.HistoryViewModel
+import com.abidbe.sweetify.view.history.TrackerViewModel
 import com.abidbe.sweetify.view.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import java.util.Calendar
@@ -30,7 +27,7 @@ class ResultFragment : Fragment() {
     private val scanViewModel by viewModels<ScanViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
-    private val historyViewModel by viewModels<HistoryViewModel> {
+    private val trackerViewModel by viewModels<TrackerViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
     private var availableSugar: Double? = null
@@ -55,14 +52,14 @@ class ResultFragment : Fragment() {
             analyzeImage(it, amount)
         }
 
-        historyViewModel.availableSugar.observe(viewLifecycleOwner) { available ->
+        trackerViewModel.availableSugar.observe(viewLifecycleOwner) { available ->
             availableSugar = available
         }
 
         val userId = FirebaseAuth.getInstance().currentUser?.uid
         val purchaseDate = getCurrentDate()
         userId?.let {
-            historyViewModel.fetchPieData(it, purchaseDate)
+            trackerViewModel.fetchPieData(it, purchaseDate)
         }
     }
 

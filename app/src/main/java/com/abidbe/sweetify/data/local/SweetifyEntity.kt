@@ -16,3 +16,8 @@ data class Drink(
 )
 
 
+data class WeeklySugarAmount(
+    val date: String,
+    val totalSugarAmount: Double
+)
+

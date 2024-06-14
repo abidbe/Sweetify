@@ -19,12 +19,12 @@
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.abidbe.sweetify.view.history.HistoryFragment"
+        android:name="com.abidbe.sweetify.view.history.TrackerFragment"
         android:label="@string/history"
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.abidbe.sweetify.view.profile.ProfileFragment"
-        android:label="@string/profile"
+        android:label="@string/account"
         tools:layout="@layout/fragment_profile" />
 </navigation>

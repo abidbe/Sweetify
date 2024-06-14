@@ -2,6 +2,7 @@ package com.abidbe.sweetify.view.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import com.abidbe.sweetify.databinding.FragmentHomeBinding
 import com.abidbe.sweetify.view.welcome.OnboardingActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -29,21 +31,22 @@ class HomeFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         val firebaseUser = auth.currentUser
         if (firebaseUser == null) {
-            // Not signed in, launch the Onboarding activity
             startActivity(Intent(requireContext(), OnboardingActivity::class.java))
             activity?.finish()
             return
         }
-        val displayName = firebaseUser.displayName
-        // Display user's profile information
-        binding.tvGreeting.text = getString(R.string.greeting_text, displayName)
 
+        setupUser(firebaseUser)
+    }
+
+    private fun setupUser(firebaseUser: FirebaseUser) {
+        val displayName = firebaseUser.displayName
+        binding.tvGreeting.text = getString(R.string.greeting_text, displayName)
+        Log.d("HomeFragment", "Photo URL: ${firebaseUser.photoUrl}")
         firebaseUser.photoUrl?.let { photoUrl ->
-            // Use Glide to load the profile image
-            Glide.with(this)
+            Glide.with(requireContext())
                 .load(photoUrl)
                 .into(binding.imvUserPhoto)
         }
     }
-
 }

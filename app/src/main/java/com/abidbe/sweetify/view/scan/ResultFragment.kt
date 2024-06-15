@@ -1,16 +1,13 @@
 package com.abidbe.sweetify.view.scan
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.abidbe.sweetify.R
 import com.abidbe.sweetify.data.api.response.ScanResponse
@@ -18,7 +15,7 @@ import com.abidbe.sweetify.data.local.Drink
 import com.abidbe.sweetify.databinding.FragmentResultBinding
 import com.abidbe.sweetify.factory.ViewModelFactory
 import com.abidbe.sweetify.utils.uriToFile
-import com.abidbe.sweetify.view.history.HistoryViewModel
+import com.abidbe.sweetify.view.history.TrackerViewModel
 import com.abidbe.sweetify.view.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import java.util.Calendar
@@ -30,9 +27,10 @@ class ResultFragment : Fragment() {
     private val scanViewModel by viewModels<ScanViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
-    private val historyViewModel by viewModels<HistoryViewModel> {
+    private val trackerViewModel by viewModels<TrackerViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
+    private var availableSugar: Double? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +52,15 @@ class ResultFragment : Fragment() {
             analyzeImage(it, amount)
         }
 
+        trackerViewModel.availableSugar.observe(viewLifecycleOwner) { available ->
+            availableSugar = available
+        }
+
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        val purchaseDate = getCurrentDate()
+        userId?.let {
+            trackerViewModel.fetchPieData(it, purchaseDate)
+        }
     }
 
     private fun analyzeImage(image: Uri, amount: Double?) {
@@ -78,8 +85,7 @@ class ResultFragment : Fragment() {
                 binding.tvSugarAmountResult.text = sugar.toString()
                 binding.buttonBuy.setOnClickListener {
                     if (sugar != null) {
-                        saveToLocal(scanResult, sugar)
-                        goToMainActivity()
+                        buyDrink(scanResult, sugar)
                     }
                 }
             }
@@ -89,18 +95,36 @@ class ResultFragment : Fragment() {
         }
     }
 
-    private fun showReassuranceDialog(scanResult: ScanResponse, sugar: Double) {
+    private fun buyDrink(scanResponse: ScanResponse?, sugar: Double) {
+        scanResponse?.let {
+            availableSugar?.let { available ->
+                if (available == 0.0) {
+                    showReassuranceDialog(scanResponse, sugar,
+                        getString(R.string.no_available_sugar),
+                        getString(R.string.message_nosugar))
+                } else if (available < sugar) {
+                    showReassuranceDialog(scanResponse, sugar,
+                        getString(R.string.not_enough_available_sugar),
+                        getString(R.string.message_notenoughsugar))
+                } else {
+                    saveToLocal(scanResponse, sugar)
+                }
+            }
+        }
+    }
+
+    private fun showReassuranceDialog(scanResponse: ScanResponse, sugar: Double, title: String, message: String) {
         AlertDialog.Builder(requireContext())
-            .setTitle("You have reach your limit!")
-            .setMessage("You don't have more available sugar to consume today. Are you sure you want to buy this drink?")
+            .setTitle(title)
+            .setMessage(message)
             .setPositiveButton("Yes") { dialog, _ ->
-                saveToLocal(scanResult, sugar)
+                saveToLocal(scanResponse, sugar)
                 goToMainActivity()
                 dialog.dismiss()
             }
             .setNegativeButton("No") { dialog, _ ->
-                goToMainActivity()
                 dialog.dismiss()
+                goToMainActivity()
             }
             .create()
             .show()
@@ -126,6 +150,7 @@ class ResultFragment : Fragment() {
             }
             if (drink != null) {
                 scanViewModel.saveDrinkToLocalDatabase(drink)
+                goToMainActivity()
             }
         }
     }
@@ -161,3 +186,4 @@ class ResultFragment : Fragment() {
         const val ARG_AMOUNT = "amount"
     }
 }
+

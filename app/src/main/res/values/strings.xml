@@ -57,7 +57,7 @@
     <string name="product_name">Green Tea</string>
     <string name="not_recommended">Not Recommended</string>
     <string name="scan_result">Analyze Result</string>
-    <string name="grams_example">4000</string>
+    <string name="grams_example">40.0</string>
     <string name="log">Your Daily Purchase</string>
     <string name="dateSample">----/--/--</string>
     <string name="amount_history">Sugar</string>
@@ -75,7 +75,7 @@
     <string name="delete_data_desc">Delete Data</string>
     <string name="gram_sugar">0.333</string>
     <string name="grade_text">Grade</string>
-    <string name="track_your_sugar_n_consumption">Track your sugar \n \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0  consumption!</string>
+    <string name="track_your_sugar_n_consumption">Track your sugar \n \u00A0\u00A0\u00A0\u00A0\u00A0 consumption!</string>
     <string name="daily_limit">Daily limit: 50 grams</string>
     <string name="today_s_consumption">Today\'s Consumption</string>
     <string name="you_are_below_the_daily_limit">You are below the daily limit</string>
@@ -83,5 +83,29 @@
     <string name="_50_0">50.0</string>
     <string name="available_sugar">Available Sugar</string>
     <string name="hint_text">Please select or capture an image</string>
+    <string name="no_available_sugar">No Available Sugar</string>
+    <string name="message_nosugar">You don\'t have more available sugar to consume today. Are you sure you want to buy this drink?</string>
+    <string name="not_enough_available_sugar">Not Enough Available Sugar</string>
+    <string name="message_notenoughsugar">You don\'t have enough available sugar to consume this drink. Are you sure you want to buy this drink?</string>
+    <string name="source">image: Flaticon.com</string>
+    <string name="logout_button">Logout Button</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="consumption_history">Consumption History</string>
+    <string name="general">General</string>
+    <string name="preference">Preference</string>
+    <string name="about">About</string>
+    <string name="log_out">Log Out</string>
+    <string name="setting">Settings</string>
+    <string name="account">Account</string>
+    <string name="username">Username</string>
+    <string name="save">Save</string>
+    <string name="your_purchase_history_for_the_past_week">Your purchase history \n \u00A0\u00A0\u00A0\u00A0\u00A0 for the past week</string>
+    <string name="until">until</string>
+    <string name="consumed_sugar">Consumed Sugar:</string>
+    <string name="you_re_below_the_limit_on_that_day">You\'re below the limit on this day!</string>
+    <string name="you_ve_exceeded_the_limit_on_that_day">You\'ve exceeded the limit on this day</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="are_you_sure_you_want_to_sign_out">Are you sure you want to sign out?</string>
+    <string name="tracker">Tracker</string>
 
 </resources>

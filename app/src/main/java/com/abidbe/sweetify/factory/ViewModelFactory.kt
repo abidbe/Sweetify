@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.abidbe.sweetify.data.repository.ScanRepository
 import com.abidbe.sweetify.utils.Injection
-import com.abidbe.sweetify.view.history.HistoryViewModel
+import com.abidbe.sweetify.view.history.TrackerViewModel
+import com.abidbe.sweetify.view.profile.HistoryViewModel
 import com.abidbe.sweetify.view.scan.ScanViewModel
 
 class ViewModelFactory(private val scanRepository: ScanRepository): ViewModelProvider.NewInstanceFactory(){
@@ -14,6 +15,9 @@ class ViewModelFactory(private val scanRepository: ScanRepository): ViewModelPro
         return when{
             modelClass.isAssignableFrom(ScanViewModel::class.java) -> {
                 ScanViewModel(scanRepository) as T
+            }
+            modelClass.isAssignableFrom(TrackerViewModel::class.java) -> {
+                TrackerViewModel(scanRepository) as T
             }
             modelClass.isAssignableFrom(HistoryViewModel::class.java) -> {
                 HistoryViewModel(scanRepository) as T

@@ -3,7 +3,6 @@ package com.abidbe.sweetify.view.history
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,15 +20,14 @@ import com.github.mikephil.charting.data.PieEntry
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
 
-class HistoryFragment : Fragment() {
+class TrackerFragment : Fragment() {
     private lateinit var binding: FragmentHistoryBinding
     private lateinit var auth: FirebaseAuth
-    private val historyViewModel by viewModels<HistoryViewModel> {
+    private val trackerViewModel by viewModels<TrackerViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
     private val handler = Handler(Looper.getMainLooper())
@@ -65,16 +63,16 @@ class HistoryFragment : Fragment() {
         lifecycleScope.launch {
             val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return@launch
             val date = getCurrentDate()
-            historyViewModel.fetchPieData(userId, date)
-            historyViewModel.fetchTotalSugarAmount(userId, date)
+            trackerViewModel.fetchPieData(userId, date)
+            trackerViewModel.fetchTotalSugarAmount(userId, date)
         }
-        historyViewModel.totalSugarAmount.observe(viewLifecycleOwner) { totalSugarAmount ->
+        trackerViewModel.totalSugarAmount.observe(viewLifecycleOwner) { totalSugarAmount ->
             binding.tvSugarValue.text = totalSugarAmount.toString()
-            val availableSugarAmount = historyViewModel.calculateAvailableSugar(totalSugarAmount)
+            val availableSugarAmount = trackerViewModel.calculateAvailableSugar(totalSugarAmount)
             binding.tvSugarValueAvailable.text = availableSugarAmount.toString()
         }
-        historyViewModel.pieData.observe(viewLifecycleOwner) { pieEntries ->
-            historyViewModel.isLimit.observe(viewLifecycleOwner) { isLimit ->
+        trackerViewModel.pieData.observe(viewLifecycleOwner) { pieEntries ->
+            trackerViewModel.isLimit.observe(viewLifecycleOwner) { isLimit ->
                 if (isLimit) {
                     binding.cardExceedLimit.visibility = View.VISIBLE
                 } else {
@@ -85,7 +83,7 @@ class HistoryFragment : Fragment() {
             binding.rvHistory.visibility = View.VISIBLE
         }
 
-        historyViewModel.isNoData.observe(viewLifecycleOwner) { isNoData ->
+        trackerViewModel.isNoData.observe(viewLifecycleOwner) { isNoData ->
             if (isNoData) {
                 binding.cardNoData.visibility = View.VISIBLE
                 binding.rvHistory.visibility = View.GONE
@@ -94,16 +92,16 @@ class HistoryFragment : Fragment() {
     }
 
     private fun setPieChart(entries: List<PieEntry>) {
-        val pink200 = ContextCompat.getColor(requireContext(), R.color.pink_200)
-        val pink400 = ContextCompat.getColor(requireContext(), R.color.pink_400)
+        val pink300 = ContextCompat.getColor(requireContext(), R.color.pink_300)
+        val pink500 = ContextCompat.getColor(requireContext(), R.color.pink_500)
         val pink100 = ContextCompat.getColor(requireContext(), R.color.pink_100)
         val pink950 = ContextCompat.getColor(requireContext(), R.color.pink_950)
         val pieChart = binding.pieChart
 
         val dataSet = PieDataSet(entries, "Sugar Consumption")
         val colors = arrayListOf(
-            pink400,
-            pink200,
+            pink500,
+            pink300,
         )
         dataSet.colors = colors
         dataSet.valueTextColor = pink950
@@ -130,16 +128,16 @@ class HistoryFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        val adapter = HistoryAdapter(requireContext()) { drink ->
-            historyViewModel.deleteDrink(drink)
+        val adapter = TrackerAdapter(requireContext()) { drink ->
+            trackerViewModel.deleteDrink(drink)
         }
         binding.rvHistory.layoutManager = LinearLayoutManager(requireContext())
         binding.rvHistory.adapter = adapter
-        historyViewModel.dailyHistory.observe(viewLifecycleOwner) { history ->
+        trackerViewModel.dailyHistory.observe(viewLifecycleOwner) { history ->
             adapter.submitList(history)
             observePieData()
         }
-        historyViewModel.pieData.observe(viewLifecycleOwner) { pieEntries ->
+        trackerViewModel.pieData.observe(viewLifecycleOwner) { pieEntries ->
             setPieChart(pieEntries)
         }
     }
@@ -158,12 +156,12 @@ class HistoryFragment : Fragment() {
         lifecycleScope.launch {
             val userId = auth.currentUser?.uid ?: return@launch
             val date = getCurrentDate()
-            historyViewModel.fetchDailyHistory(userId, date)
+            trackerViewModel.fetchDailyHistory(userId, date)
         }
-        historyViewModel.dailyHistory.observe(viewLifecycleOwner) { history ->
-            (binding.rvHistory.adapter as? HistoryAdapter)?.submitList(history)
+        trackerViewModel.dailyHistory.observe(viewLifecycleOwner) { history ->
+            (binding.rvHistory.adapter as? TrackerAdapter)?.submitList(history)
         }
-        historyViewModel.pieData.observe(viewLifecycleOwner) { pieEntries ->
+        trackerViewModel.pieData.observe(viewLifecycleOwner) { pieEntries ->
             setPieChart(pieEntries)
         }
     }

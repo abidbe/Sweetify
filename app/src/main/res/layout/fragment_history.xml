@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pink_50"
-    tools:context=".view.history.HistoryFragment">
+    tools:context=".view.history.TrackerFragment">
 
     <TextView
         android:id="@+id/header_title"
@@ -26,7 +26,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/costum_bg"
+        android:background="@drawable/costum_bg2"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,8 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/track_your_sugar_n_consumption"
-            android:textColor="@color/pink_950"
-            android:textSize="16sp"
+            android:textColor="@color/pink_50"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +50,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="12dp"
             android:text="@string/daily_limit"
-            android:textColor="@color/pink_950"
+            android:textColor="@color/pink_50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -58,7 +58,7 @@
             android:id="@+id/cardExceedLimit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/pink_500"
+            android:backgroundTint="@color/pink_600"
             android:elevation="10dp"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
                 android:text="@string/you_are_below_the_daily_limit"
-                android:textColor="@color/pink_950"
+                android:textColor="@color/pink_50"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -117,7 +117,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/costum_bg"
-        android:backgroundTint="@color/pink_400"
+        android:backgroundTint="@color/pink_500"
         android:padding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardData">
@@ -163,7 +163,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/costum_bg"
-        android:backgroundTint="@color/pink_200"
+        android:backgroundTint="@color/pink_300"
         android:padding="12dp"
         app:layout_constraintStart_toEndOf="@id/cardSugarConsumed"
         app:layout_constraintTop_toBottomOf="@id/cardData">
@@ -215,15 +215,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardHistory"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/costum_bg"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal2"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal2">
 
         <TextView
             android:id="@+id/tvHistory"
@@ -231,81 +230,73 @@
             android:layout_height="wrap_content"
             android:text="@string/log"
             android:textColor="@color/pink_950"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/dateLayout"
+
+        <TextView
+            android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="2dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/dateIcon"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="2dp"
-                android:src="@drawable/baseline_calendar_today_24"
-                app:tint="@color/pink_950" />
-
-            <TextView
-                android:id="@+id/tvDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dateSample"
-                android:textColor="@color/pink_950"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardNoData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/pink_100"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/dateSample"
+            android:textColor="@color/pink_950"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dateLayout">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/no_data"
-                android:textColor="@color/pink_950"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHistory"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="-10dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHistory"
-            tools:listitem="@layout/item_purchase" />
-
+            app:layout_constraintTop_toBottomOf="@id/tvHistory" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardNoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/pink_100"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardHistory">
 
+        <ImageView
+            android:id="@+id/imageNoData"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:contentDescription="@string/source"
+            android:src="@drawable/shopping"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/pink_950" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/no_data"
+            android:textColor="@color/pink_950"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageNoData" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="-10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardHistory"
+        tools:listitem="@layout/item_purchase" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

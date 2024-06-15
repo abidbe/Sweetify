@@ -11,10 +11,10 @@ import com.abidbe.sweetify.data.local.Drink
 import com.abidbe.sweetify.databinding.ItemPurchaseBinding
 
 
-class HistoryAdapter(
+class TrackerAdapter(
     private val context: Context,
     private val onDeleteClick: (Drink) -> Unit
-) : ListAdapter<Drink, HistoryAdapter.WordViewHolder>(WordsComparator()) {
+) : ListAdapter<Drink, TrackerAdapter.WordViewHolder>(WordsComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         val binding = ItemPurchaseBinding.inflate(LayoutInflater.from(parent.context), parent, false)

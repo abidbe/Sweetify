@@ -2,10 +2,11 @@ package com.abidbe.sweetify.view.main
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.abidbe.sweetify.R
 import com.abidbe.sweetify.databinding.FragmentHomeBinding
 import com.abidbe.sweetify.view.welcome.OnboardingActivity
@@ -44,6 +45,31 @@ class HomeFragment : Fragment() {
                 .load(photoUrl)
                 .into(binding.imvUserPhoto)
         }
+
+        // Navigate to GradeDetailFragment when a card is clicked
+        binding.cardA.setOnClickListener {
+            navigateToGradeDetail("A")
+        }
+        binding.cardB.setOnClickListener {
+            navigateToGradeDetail("B")
+        }
+        binding.cardC.setOnClickListener {
+            navigateToGradeDetail("C")
+        }
+        binding.cardD.setOnClickListener {
+            navigateToGradeDetail("D")
+        }
+
+        // Navigate to SearchFragment when search bar is clicked
+        binding.searchBar.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
     }
 
+    private fun navigateToGradeDetail(grade: String) {
+        val bundle = Bundle().apply {
+            putString("GRADE", grade)
+        }
+        findNavController().navigate(R.id.action_homeFragment_to_gradeDetailFragment, bundle)
+    }
 }

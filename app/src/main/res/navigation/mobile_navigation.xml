@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -16,7 +16,6 @@
         <action
             android:id="@+id/action_homeFragment_to_gradeDetailFragment"
             app:destination="@id/gradeDetailFragment" />
-
     </fragment>
     <fragment
         android:id="@+id/gradeDetailFragment"
@@ -27,13 +26,24 @@
         android:id="@+id/navigation_glupedia"
         android:name="com.abidbe.sweetify.view.glupedia.GlupediaFragment"
         android:label="@string/glupedia"
-        tools:layout="@layout/fragment_glupedia" />
+        tools:layout="@layout/fragment_glupedia" >
+        <action
+            android:id="@+id/action_glupediaFragment_to_glupediaDetailFragment"
+            app:destination="@id/glupediaDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/glupediaDetailFragment"
+        android:name="com.abidbe.sweetify.view.glupedia.GlupediaDetailFragment"
+        tools:layout="@layout/fragment_glupedia_detail">
+        <argument
+            android:name="glupediaId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.abidbe.sweetify.view.main.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
-
     <fragment
         android:id="@+id/navigation_history"
         android:name="com.abidbe.sweetify.view.history.TrackerFragment"

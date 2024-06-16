@@ -54,14 +54,15 @@ class SearchFragment : Fragment() {
     }
 
     private fun getProducts() {
+        showLoading(true)
         apiService.getProducts().enqueue(object : Callback<List<Product>> {
             override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
+                showLoading(false)
                 if (response.isSuccessful) {
                     response.body()?.let {
                         searchAdapter.updateProducts(it)
                     }
                     Log.d("SearchFragment", "Products loaded")
-                    Toast.makeText(context, "Products loaded", Toast.LENGTH_SHORT).show()
                 } else {
                     Log.e("SearchFragment", "Failed to load products")
                     Toast.makeText(context, "Failed to load products", Toast.LENGTH_SHORT).show()
@@ -69,6 +70,7 @@ class SearchFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+                showLoading(false)
                 Log.e("SearchFragment", "Failed to load products: ${t.message}")
                 Toast.makeText(context, "Failed to load products: ${t.message}", Toast.LENGTH_SHORT).show()
             }
@@ -76,8 +78,10 @@ class SearchFragment : Fragment() {
     }
 
     private fun searchProducts(query: String) {
+        showLoading(true)
         apiService.searchProducts(query).enqueue(object : Callback<List<Product>> {
             override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
+                showLoading(false)
                 if (response.isSuccessful) {
                     response.body()?.let {
                         searchAdapter.updateProducts(it)
@@ -91,9 +95,14 @@ class SearchFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+                showLoading(false)
                 Log.e("SearchFragment", "Failed to fetch data: ${t.message}")
                 Toast.makeText(context, "Failed to fetch data: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

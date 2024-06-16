@@ -41,18 +41,25 @@ class GradeDetailFragment : Fragment() {
     }
 
     private fun fetchProductsByGrade(grade: String) {
+        showLoading(true)
         val apiService = ApiClient.apiService
         apiService.getProductsByGrade(grade).enqueue(object : Callback<List<Product>> {
             override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
+                showLoading(false)
                 if (response.isSuccessful) {
                     searchAdapter.updateProducts(response.body() ?: listOf())
                 }
             }
 
             override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+                showLoading(false)
                 Log.e("GradeDetailFragment", "Error fetching products by grade", t)
             }
         })
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {

@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.devtools.ksp")
     alias(libs.plugins.googleGmsGoogleServices)
+    id("androidx.navigation.safeargs")
 }
 
 android {

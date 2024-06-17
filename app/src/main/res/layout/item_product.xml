@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="C1000 Vitamin Lemon"
+            android:textColor="@color/pink_950"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
         <TextView
@@ -25,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Grade: D"
+            android:textColor="@color/pink_950"
             android:textAppearance="?attr/textAppearanceBody2" />
 
         <TextView
@@ -32,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sugar: 16g"
+            android:textColor="@color/pink_950"
             android:textAppearance="?attr/textAppearanceBody2" />
 
         <TextView
@@ -39,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Serving Size: 140ml"
+            android:textColor="@color/pink_950"
             android:textAppearance="?attr/textAppearanceBody2" />
 
     </LinearLayout>

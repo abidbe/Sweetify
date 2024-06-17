@@ -8,6 +8,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.abidbe.sweetify.R
 import com.abidbe.sweetify.databinding.ActivityMainBinding
@@ -53,6 +54,23 @@ class MainActivity : AppCompatActivity() {
             )
         )
         navView.setupWithNavController(navController)
+        navView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_glupedia -> {
+                    navController.popBackStack(R.id.navigation_glupedia, false)
+                    navController.navigate(R.id.navigation_glupedia)
+                    true
+                }
+                R.id.navigation_home->{
+                    navController.popBackStack(R.id.navigation_home, false)
+                    navController.navigate(R.id.navigation_home)
+                    true
+                }
+                else -> {
+                    NavigationUI.onNavDestinationSelected(item, navController)
+                }
+            }
+        }
         val scanBtn = binding.fabScan
         scanBtn.setOnClickListener {
             val intent = Intent(this, ScanActivity::class.java)

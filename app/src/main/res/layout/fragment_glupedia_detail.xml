@@ -26,12 +26,10 @@
             android:scaleType="centerCrop" />
 
         <ScrollView
+            style="@style/costumBgTheme3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="16dp"
-            android:background="@drawable/costum_bg4"
-
-            >
+            android:paddingTop="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,29 +39,27 @@
 
                 <TextView
                     android:id="@+id/detailTitleTextView"
+                    style="@style/viewColor950topBg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:textSize="24sp"
-                    android:textColor="@color/pink_950"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/detailDateTextView"
+                    style="@style/viewColor950topBg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/pink_950"
                     android:padding="8dp" />
 
                 <TextView
                     android:id="@+id/detailContentTextView"
+                    style="@style/viewColor950topBg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/pink_950"
                     android:padding="8dp" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-
-
 </LinearLayout>

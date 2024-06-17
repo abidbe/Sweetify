@@ -2,18 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/background"
     tools:context=".view.profile.ProfileDetailActivity">
 
     <TextView
         android:id="@+id/titleHeader"
+        style="@style/viewColor950"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="@string/profile"
-        style="@style/viewColor950"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,22 +22,35 @@
 
     <ImageButton
         android:id="@+id/backButton"
+        style="@style/viewColor950"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_arrow_back_24"
+        android:layout_margin="12dp"
         android:background="#004D041C"
-        style="@style/viewColor950"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/titleHeader"
+        android:src="@drawable/baseline_arrow_back_24"
         app:layout_constraintBottom_toBottomOf="@id/titleHeader"
-        android:layout_margin="12dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/titleHeader" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:indicatorColor="@color/pink_600"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/costumBgTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
-        style="@style/costumBgTheme"
         android:padding="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,11 +88,11 @@
 
             <TextView
                 android:id="@+id/tvUsernameTitle"
+                style="@style/viewColor950topBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/username"
                 android:textSize="16sp"
-                style="@style/viewColor950topBg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,17 +109,17 @@
                     android:id="@+id/edInputName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/pink_950"/>
+                    android:textColor="@color/pink_950" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tvEmailTitle"
+                style="@style/viewColor950topBg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/email"
                 android:textSize="16sp"
-                style="@style/viewColor950topBg"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/edLayoutName" />
 
@@ -115,16 +129,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxBackgroundColor="@color/pink_100"
+                app:helperTextTextColor="@color/pink_800"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvEmailTitle"
-                app:helperTextTextColor="@color/pink_700">
+                app:layout_constraintTop_toBottomOf="@id/tvEmailTitle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edInputEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:enabled="false"
-                    android:textColor="@color/pink_950"/>
+                    android:textColor="@color/pink_950" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -132,15 +146,15 @@
 
         <Button
             android:id="@+id/saveButton"
+            style="@style/buttonColor400.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            style="@style/buttonColor400"
             android:paddingHorizontal="48dp"
             android:text="@string/save"
-            app:layout_constraintTop_toBottomOf="@id/layoutEdit"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/layoutEdit" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

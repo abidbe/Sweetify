@@ -2,8 +2,12 @@ package com.abidbe.sweetify.view.profile
 
 import android.app.Activity
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.PickVisualMediaRequest
@@ -26,6 +30,20 @@ class ProfileDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupUser()
         setupAction()
+        setupView()
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
     }
 
     private fun setupAction() {
@@ -63,6 +81,7 @@ class ProfileDetailActivity : AppCompatActivity() {
 
 
     private fun updateUser() {
+        showLoading()
         val username = binding.edInputName.text.toString()
         val firebaseUser = auth.currentUser
         firebaseUser?.let {
@@ -78,11 +97,13 @@ class ProfileDetailActivity : AppCompatActivity() {
             it.updateProfile(profileUpdates)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
+                        hideLoading()
                         Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT)
                             .show()
                         setResult(Activity.RESULT_OK)
                         finish()
                     } else {
+                        hideLoading()
                         Toast.makeText(this, "Profile update failed", Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -110,5 +131,15 @@ class ProfileDetailActivity : AppCompatActivity() {
                 .load(it)
                 .into(binding.photo)
         }
+    }
+
+    private fun showLoading() {
+        binding.progressIndicator.visibility = View.VISIBLE
+        binding.container.alpha = 0.5f
+    }
+
+    private fun hideLoading() {
+        binding.progressIndicator.visibility = View.GONE
+        binding.container.alpha = 1f
     }
 }

@@ -9,41 +9,42 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        style="@style/costumBgTheme2">
 
         <TextView
             android:id="@+id/tvProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="C1000 Vitamin Lemon"
-            android:textColor="@color/pink_950"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@color/pink_950" />
 
         <TextView
             android:id="@+id/tvProductGrade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Grade: D"
-            android:textColor="@color/pink_950"
-            android:textAppearance="?attr/textAppearanceBody2" />
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="@color/pink_950" />
 
         <TextView
             android:id="@+id/tvProductSugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sugar: 16g"
-            android:textColor="@color/pink_950"
-            android:textAppearance="?attr/textAppearanceBody2" />
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="@color/pink_950" />
 
         <TextView
             android:id="@+id/tvProductServing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Serving Size: 140ml"
-            android:textColor="@color/pink_950"
-            android:textAppearance="?attr/textAppearanceBody2" />
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="@color/pink_950" />
 
     </LinearLayout>
 

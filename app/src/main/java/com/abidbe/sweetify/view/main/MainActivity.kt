@@ -57,17 +57,26 @@ class MainActivity : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_glupedia -> {
-                    navController.popBackStack(R.id.navigation_glupedia, false)
-                    navController.navigate(R.id.navigation_glupedia)
+                    if (navController.currentDestination?.id == R.id.navigation_glupedia) {
+                        navController.popBackStack(R.id.navigation_glupedia, false)
+                        navController.navigate(R.id.navigation_glupedia)
+                    } else {
+                        navController.navigate(R.id.navigation_glupedia)
+                    }
                     true
                 }
-                R.id.navigation_home->{
-                    navController.popBackStack(R.id.navigation_home, false)
-                    navController.navigate(R.id.navigation_home)
+                R.id.navigation_home -> {
+                    if (navController.currentDestination?.id == R.id.navigation_home) {
+                        navController.popBackStack(R.id.navigation_home, false)
+                        navController.navigate(R.id.navigation_home)
+                    } else {
+                        navController.navigate(R.id.navigation_home)
+                    }
                     true
                 }
                 else -> {
                     NavigationUI.onNavDestinationSelected(item, navController)
+                    true
                 }
             }
         }

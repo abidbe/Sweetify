@@ -62,6 +62,15 @@ class ProfileFragment : Fragment() {
         binding.historyButton.setOnClickListener {
             goToHistoryPurchase()
         }
+
+        binding.aboutButton.setOnClickListener {
+            goToAbout()
+        }
+    }
+
+    private fun goToAbout() {
+        val intent = Intent(requireContext(), AboutActivity::class.java)
+        startActivity(intent)
     }
 
     private fun goToSetting(){

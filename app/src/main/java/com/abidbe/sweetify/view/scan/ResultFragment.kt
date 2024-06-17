@@ -63,6 +63,7 @@ class ResultFragment : Fragment() {
         }
     }
 
+
     private fun analyzeImage(image: Uri, amount: Double?) {
         val imageFile = uriToFile(image, requireContext())
         scanViewModel.uploadImage(imageFile)

@@ -119,10 +119,11 @@
     <string name="are_you_sure_you_want_to_delete_this">Are you sure you want to delete this?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="grade_content_a">Sugar: 0 - 1g/100ml</string>
-    <string name="grade_content_b">Sugar: 2 - 5g/100ml</string>
-    <string name="grade_content_c">Sugar: 6 - 10g/100ml</string>
+    <string name="grade_content_a">Sugar: 0 – 1g/100ml</string>
+    <string name="grade_content_b">Sugar: 2 – 5g/100ml</string>
+    <string name="grade_content_c">Sugar: 6 – 10g/100ml</string>
     <string name="grade_content_d">Sugar: > 10g/100ml</string>
     <string name="grade_content">This grade based on sugar per serving</string>
     <string name="learn_more_by_reading_the_article">Learn more by reading the article.</string>
+    <string name="about_content">Welcome to Sweetify, your go-to app for monitoring sugar levels in packaged drinks. Designed with advanced scanning technology, Sweetify offers a seamless experience that helps you make informed choices about your beverages. With our user-friendly interface and comprehensive feature set, managing your sugar intake has never been easier. \n\nSweetify revolutionizes the way you monitor sugar intake from packaged drinks. Our app features a powerful scanning capability that quickly detects and displays sugar levels, ensuring you stay informed about your consumption. Whether you’re at home or on the go, Sweetify’s intuitive design and robust features provide a reliable companion for maintaining a healthier lifestyle. \n\nSweetify combines cutting-edge technology with an intuitive design to provide you with instant and accurate sugar content information, empowering you to make healthier beverage choices effortlessly. Enjoy the convenience of Sweetify\'s easy-to-use interface and comprehensive health insights at your fingertips. \n\nWith Sweetify, managing your sugar intake is straightforward and efficient. Our app’s advanced technology and user-friendly interface make it easy to stay on top of your sugar consumption. Sweetify not only provides accurate sugar content information but also supports your journey towards healthier beverage choices and overall well-being. \n\nSweetify is a groundbreaking app designed to help you detect sugar levels in packaged drinks with a simple scan. Our app leverages state-of-the-art scanning technology to detect sugar levels instantly. Sweetify not only provides accurate sugar content information but also supports your journey towards healthier beverage choices and overall well-being.</string>
 </resources>

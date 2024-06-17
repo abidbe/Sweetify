@@ -39,6 +39,9 @@ import java.io.IOException
 import java.net.SocketTimeoutException
 import java.util.concurrent.TimeoutException
 import android.content.res.ColorStateList
+import android.os.Build
+import android.view.WindowInsets
+import android.view.WindowManager
 
 class ScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanBinding
@@ -52,7 +55,21 @@ class ScanActivity : AppCompatActivity() {
         binding = ActivityScanBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupAction()
+        setupView()
         triggerServerWithPlaceholder()
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
     }
 
     private fun triggerServerWithPlaceholder() {

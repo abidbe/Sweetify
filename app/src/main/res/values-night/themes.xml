@@ -10,7 +10,7 @@
     </style>
 
     <style name="background">
-        <item name="android:background">@color/pink_900</item>
+        <item name="android:background">#670A28</item>
     </style>
 
     <style name="TransparentDialog" parent="Theme.AppCompat.Light.Dialog">
@@ -29,11 +29,16 @@
     </style>
 
     <style name="viewColor950">
-        <item name="android:textColor">@color/pink_200</item>
-        <item name="tint">@color/pink_200</item>
+        <item name="android:textColor">@color/pink_100</item>
+        <item name="tint">@color/pink_100</item>
     </style>
 
     <style name="viewColor50">
+        <item name="android:textColor">@color/pink_100</item>
+        <item name="tint">@color/pink_100</item>
+    </style>
+
+    <style name="viewColor50topBg">
         <item name="android:textColor">@color/pink_950</item>
         <item name="tint">@color/pink_950</item>
     </style>
@@ -49,26 +54,64 @@
         <item name="android:background">@drawable/costum_bg_dark</item>
     </style>
 
-    <style name="buttonColor100">
-        <item name="backgroundTint">@color/pink_300</item>
-        <item name="android:textColor">@color/pink_950</item>
-        <item name="drawableTint">@color/pink_950</item>
+    <style name="viewColor950topBg">
+        <item name="android:textColor">@color/pink_800</item>
+        <item name="tint">@color/pink_800</item>
     </style>
+
+    <style name="viewColor400">
+        <item name="android:textColor">@color/pink_300</item>
+        <item name="tint">@color/pink_300</item>
+    </style>
+
+    <style name="buttonColor400.2">
+        <item name="backgroundTint">@color/pink_100</item>
+        <item name="android:textColor">@color/pink_400</item>
+    </style>
+
+    <style name="buttonColor100">
+        <item name="backgroundTint">@color/pink_200</item>
+        <item name="android:textColor">@color/pink_800</item>
+        <item name="drawableTint">@color/pink_800</item>
+    </style>
+
     <style name="costumBgTheme">
         <item name="android:background">@drawable/costum_bg_dark</item>
     </style>
+
     <style name="bottomNav">
         <item name="android:background">@color/pink_950</item>
-        <item name="itemIconTint">@color/pink_400</item>
-        <item name="itemTextColor">@color/pink_400</item>
+        <item name="itemIconTint">@color/pink_300</item>
+        <item name="itemTextColor">@color/pink_300</item>
+    </style>
+
+    <style name="costumBgTheme2">
+        <item name="android:background">@drawable/costum_bg5_dark</item>
+    </style>
+
+    <style name="costumBgTheme3">
+        <item name="android:background">@drawable/costum_bg4_dark</item>
+    </style>
+
+    <style name="costumBgTheme4">
+        <item name="android:background">@drawable/costum_bg6_dark</item>
     </style>
 
     <style name="settingStyle">
-        <item name="android:background"> @drawable/costum_bg3_dark</item>
+        <item name="android:background">@drawable/costum_bg3_dark</item>
     </style>
 
     <style name="switchStyle">
         <item name="trackTint">@color/pink_950</item>
         <item name="thumbTint">@color/pink_400</item>
+    </style>
+
+    <style name="searchStyle">
+        <item name="android:backgroundTint">@color/pink_400</item>
+    </style>
+
+    <style name="scanStyle">
+        <item name="android:backgroundTint">@color/pink_400</item>
+        <item name="tint">@color/pink_200</item>
     </style>
 </resources>

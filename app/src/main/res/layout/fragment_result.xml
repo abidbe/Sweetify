@@ -337,7 +337,7 @@
 
                     <Button
                         android:id="@+id/button_cancel"
-                        style="@style/buttonColor400"
+                        style="@style/buttonColor400.2"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:text="@string/cancel"
@@ -346,7 +346,7 @@
 
                     <Button
                         android:id="@+id/button_buy"
-                        style="@style/buttonColor400"
+                        style="@style/buttonColor400.2"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:text="@string/buy"

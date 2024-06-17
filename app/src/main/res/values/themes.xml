@@ -80,7 +80,17 @@
         <item name="tint">@color/pink_50</item>
     </style>
 
+    <style name="viewColor400">
+        <item name="android:textColor">@color/pink_50</item>
+        <item name="tint">@color/pink_50</item>
+    </style>
+
     <style name="buttonColor400">
+        <item name="backgroundTint">@color/pink_400</item>
+        <item name="android:textColor">@color/pink_50</item>
+    </style>
+
+    <style name="buttonColor400.2">
         <item name="backgroundTint">@color/pink_400</item>
         <item name="android:textColor">@color/pink_50</item>
     </style>
@@ -95,6 +105,23 @@
         <item name="android:background">@drawable/costum_bg</item>
     </style>
 
+    <style name="costumBgTheme2">
+        <item name="android:background">@drawable/costum_bg5</item>
+    </style>
+
+    <style name="costumBgTheme3">
+        <item name="android:background">@drawable/costum_bg4</item>
+    </style>
+
+    <style name="costumBgTheme4">
+        <item name="android:background">@drawable/costum_bg6</item>
+    </style>
+
+    <style name="viewColor50topBg">
+        <item name="android:textColor">@color/pink_50</item>
+        <item name="tint">@color/pink_50</item>
+    </style>
+
     <style name="bottomNav">
         <item name="android:background">@color/pink_100</item>
         <item name="itemIconTint">@color/pink_400</item>
@@ -102,11 +129,20 @@
     </style>
 
     <style name="settingStyle">
-        <item name="android:background"> @drawable/costum_bg3</item>
+        <item name="android:background">@drawable/costum_bg3</item>
     </style>
-    
+
     <style name="switchStyle">
         <item name="trackTint">@color/pink_400</item>
         <item name="thumbTint">@color/pink_950</item>
+    </style>
+
+    <style name="searchStyle">
+        <item name="android:backgroundTint">@color/pink_50</item>
+    </style>
+
+    <style name="scanStyle">
+        <item name="android:backgroundTint">@color/pink_50</item>
+        <item name="tint">@color/pink_300</item>
     </style>
 </resources>

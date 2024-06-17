@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.abidbe.sweetify.R
 import com.abidbe.sweetify.data.local.Drink
 import com.abidbe.sweetify.databinding.ItemPurchaseBinding
 
@@ -41,13 +42,13 @@ class TrackerAdapter(
         }
         private fun showDeleteDialog(drink: Drink) {
             AlertDialog.Builder(context)
-                .setTitle("Delete Drink")
-                .setMessage("Are you sure you want to delete this?")
-                .setPositiveButton("Yes") { dialog, _ ->
+                .setTitle(context.getString(R.string.delete_data_desc))
+                .setMessage(context.getString(R.string.are_you_sure_you_want_to_delete_this))
+                .setPositiveButton(context.getString(R.string.yes)) { dialog, _ ->
                     onDeleteClick(drink)
                     dialog.dismiss()
                 }
-                .setNegativeButton("No") { dialog, _ ->
+                .setNegativeButton(context.getString(R.string.no)) { dialog, _ ->
                     dialog.dismiss()
                 }
                 .show()

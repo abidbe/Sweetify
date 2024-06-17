@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_50"
+    style="@style/background"
     tools:context=".view.history.TrackerFragment">
 
     <TextView
         android:id="@+id/header_title"
+        style="@style/viewColor950"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="@string/history_log"
-        android:textColor="@color/pink_950"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +34,10 @@
 
         <TextView
             android:id="@+id/tvTitle"
+            style="@style/viewColor50"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/track_your_sugar_n_consumption"
-            android:textColor="@color/pink_50"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,12 +45,12 @@
 
         <TextView
             android:id="@+id/tvDailyLimit"
+            style="@style/viewColor50"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="12dp"
             android:text="@string/daily_limit"
-            android:textColor="@color/pink_50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
                 android:text="@string/you_are_below_the_daily_limit"
-                android:textColor="@color/pink_50"
+                style="@style/viewColor50"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -127,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sugar_consumed"
-            android:textColor="@color/pink_50"
+            style="@style/viewColor50"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -138,7 +138,7 @@
             android:layout_height="wrap_content"
             android:maxLength="4"
             android:text="@string/_50_0"
-            android:textColor="@color/pink_50"
+            style="@style/viewColor50"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSugarConsumed" />
@@ -148,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:text="@string/grams"
-            android:textColor="@color/pink_50"
+            style="@style/viewColor50"
             app:layout_constraintBottom_toBottomOf="@id/tvSugarValue"
             app:layout_constraintStart_toEndOf="@id/tvSugarValue"
             app:layout_constraintTop_toTopOf="@id/tvSugarValue" />
@@ -173,7 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/available_sugar"
-            android:textColor="@color/pink_50"
+            style="@style/viewColor50"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -184,7 +184,7 @@
             android:layout_height="wrap_content"
             android:maxLength="4"
             android:text="@string/_50_0"
-            android:textColor="@color/pink_50"
+            style="@style/viewColor50"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSugarAvailable" />
@@ -194,7 +194,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:text="@string/grams"
-            android:textColor="@color/pink_50"
+            style="@style/viewColor50"
             app:layout_constraintBottom_toBottomOf="@+id/tvSugarValueAvailable"
             app:layout_constraintStart_toEndOf="@+id/tvSugarValueAvailable"
             app:layout_constraintTop_toTopOf="@+id/tvSugarValueAvailable" />
@@ -218,7 +218,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/costum_bg"
+        style="@style/costumBgTheme"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -226,10 +226,10 @@
 
         <TextView
             android:id="@+id/tvHistory"
+            style="@style/viewColor950topBg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/log"
-            android:textColor="@color/pink_950"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -238,10 +238,10 @@
 
         <TextView
             android:id="@+id/tvDate"
+            style="@style/viewColor950topBg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dateSample"
-            android:textColor="@color/pink_950"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHistory" />
 
@@ -267,14 +267,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/pink_950" />
+            style="@style/viewColor950" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="@string/no_data"
-            android:textColor="@color/pink_950"
+            style="@style/viewColor950"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -287,11 +287,11 @@
         android:id="@+id/rvHistory"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="-10dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
-        android:visibility="invisible"
+        android:layout_marginBottom="-10dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

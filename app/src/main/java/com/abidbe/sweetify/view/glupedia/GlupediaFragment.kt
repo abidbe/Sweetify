@@ -27,7 +27,7 @@ class GlupediaFragment : Fragment() {
         return binding.root
     }
 
-    private fun fetchGlupedias() {
+    private fun fetchGlupedias() { 
         showLoading(true)
         ApiClient.apiService.getAllGlupedias().enqueue(object : Callback<GlupediaListResponse> {
             override fun onResponse(call: Call<GlupediaListResponse>, response: Response<GlupediaListResponse>) {

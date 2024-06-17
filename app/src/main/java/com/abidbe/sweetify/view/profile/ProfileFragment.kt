@@ -43,6 +43,13 @@ class ProfileFragment : Fragment() {
         }
 
         refreshProfile()
+        setupAction()
+    }
+
+    private fun setupAction() {
+        binding.settingButton.setOnClickListener {
+            goToSetting()
+        }
 
         binding.logoutButton1.setOnClickListener {
             signOut()
@@ -55,6 +62,11 @@ class ProfileFragment : Fragment() {
         binding.historyButton.setOnClickListener {
             goToHistoryPurchase()
         }
+    }
+
+    private fun goToSetting(){
+        val intent = Intent(requireContext(), SettingActivity::class.java)
+        startActivity(intent)
     }
 
     private fun goToHistoryPurchase() {
@@ -86,7 +98,7 @@ class ProfileFragment : Fragment() {
         alertDialogBuilder.apply {
             setTitle(getString(R.string.sign_out))
             setMessage(getString(R.string.are_you_sure_you_want_to_sign_out))
-            setPositiveButton("Yes") { dialog, which ->
+            setPositiveButton(getString(R.string.yes)) { dialog, which ->
                 viewLifecycleOwner.lifecycleScope.launch {
                     val credentialManager = CredentialManager.create(requireContext())
                     auth.signOut()
@@ -95,7 +107,7 @@ class ProfileFragment : Fragment() {
                     activity?.finish()
                 }
             }
-            setNegativeButton("No") { dialog, which ->
+            setNegativeButton(getString(R.string.no)) { dialog, which ->
                 dialog.dismiss()
             }
         }

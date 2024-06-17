@@ -109,5 +109,14 @@
     <string name="tracker">Tracker</string>
     <string name="no_title">no title</string>
     <string name="no_content">no content\n</string>
-
+    <string name="next_boarding">Next</string>
+    <string name="contacting_the_server">Contacting the server . . .</string>
+    <string name="try_again">Try Again</string>
+    <string name="language">Language</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="email_tooltip">Email cannot be changed!</string>
+    <string name="sugar_hint">Capture or choose image first!</string>
+    <string name="are_you_sure_you_want_to_delete_this">Are you sure you want to delete this?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

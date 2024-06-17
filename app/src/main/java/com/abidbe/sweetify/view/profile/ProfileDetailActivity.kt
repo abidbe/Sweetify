@@ -9,6 +9,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.abidbe.sweetify.R
 import com.abidbe.sweetify.databinding.ActivityProfileDetailBinding
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -57,6 +58,7 @@ class ProfileDetailActivity : AppCompatActivity() {
                 .into(binding.photo)
             binding.edInputEmail.setText(it.email)
         }
+        binding.edLayoutEmail.helperText = getString(R.string.email_tooltip)
     }
 
 

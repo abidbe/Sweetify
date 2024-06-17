@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.HttpException
 import java.io.File
 
@@ -16,21 +17,24 @@ class ScanRepository private constructor(
     val apiService: ApiService,
     private val sweetifyDatabase: SweetifyDatabase
 ) {
-    suspend fun uploadImage(imageFile: File): Result<ScanResponse> {
+    suspend fun uploadImage(imageFile: File?): Result<ScanResponse> {
         return try {
-            val requestImageFile = imageFile.asRequestBody("image/jpg".toMediaType())
+            val requestImageFile = imageFile?.asRequestBody("image/jpg".toMediaType())
             val multipartBody =
-                MultipartBody.Part.createFormData(
-                    "file",
-                    imageFile.name,
-                    requestImageFile
-                )
+                requestImageFile?.let {
+                    MultipartBody.Part.createFormData(
+                        "file",
+                        imageFile.name,
+                        it
+                    )
+                } ?: MultipartBody.Part.createFormData("file", "placeholder.jpg", ByteArray(0).toRequestBody("image/jpg".toMediaType()))
             val successResponse = apiService.uploadImage(multipartBody)
             Result.success(successResponse)
         } catch (e: HttpException) {
             Result.failure(e)
         }
     }
+
 
 
     suspend fun saveDrinkToLocalDatabase(drink: Drink) {

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.navigation.fragment.findNavController
+import com.abidbe.sweetify.R
 import com.abidbe.sweetify.databinding.FragmentGlupediaBinding
 import com.abidbe.sweetify.view.main.api.ApiClient
 import retrofit2.Call
@@ -39,7 +40,10 @@ class GlupediaFragment : Fragment() {
                         // Navigate to detail fragment using NavController
                         val action = GlupediaFragmentDirections.actionGlupediaFragmentToGlupediaDetailFragment(glupedia.id)
                         findNavController().navigate(action)
+
                     }
+                    binding.tvGlu.text = getString(R.string.learn_more_by_reading_the_article)
+                    binding.ivGlu.setImageResource(R.drawable.newspaper)
                 } else {
                     Log.e("GlupediaFragment", "Failed to fetch glupedias")
                 }

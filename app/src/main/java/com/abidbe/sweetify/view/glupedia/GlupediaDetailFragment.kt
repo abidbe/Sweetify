@@ -1,11 +1,15 @@
 package com.abidbe.sweetify.view.glupedia
 
+import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+import android.os.Build
 import android.os.Bundle
+import android.text.Layout
 import android.text.format.DateUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.abidbe.sweetify.R
@@ -24,12 +28,16 @@ class GlupediaDetailFragment : Fragment() {
     private lateinit var binding: FragmentGlupediaDetailBinding
     private val args: GlupediaDetailFragmentArgs by navArgs()
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentGlupediaDetailBinding.inflate(inflater, container, false)
         fetchGlupediaDetails(args.glupediaId)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            binding.detailContentTextView.justificationMode = JUSTIFICATION_MODE_INTER_WORD
+        }
         return binding.root
     }
 

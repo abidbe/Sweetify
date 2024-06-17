@@ -109,5 +109,11 @@
     <string name="tracker">Tracker</string>
     <string name="no_title">no title</string>
     <string name="no_content">no content\n</string>
+    <string name="grade_content_a">Sugar: 0 - 1g/100ml</string>
+    <string name="grade_content_b">Sugar: 2 - 5g/100ml</string>
+    <string name="grade_content_c">Sugar: 6 - 10g/100ml</string>
+    <string name="grade_content_d">Sugar: > 10g/100ml</string>
+    <string name="grade_content">This grade based on sugar per serving</string>
+    <string name="learn_more_by_reading_the_article">Learn more by reading the article.</string>
 
 </resources>

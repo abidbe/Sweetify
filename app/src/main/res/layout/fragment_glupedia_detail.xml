@@ -11,43 +11,59 @@
         android:indeterminate="true"
         android:visibility="gone" />
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
+
+        <ImageView
+            android:id="@+id/detailImageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_height="250dp"
+            android:layout_marginBottom="-50dp"
+            android:scaleType="centerCrop" />
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp"
+            android:background="@drawable/costum_bg4"
 
-            <ImageView
-                android:id="@+id/detailImageView"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop" />
+            >
 
-            <TextView
-                android:id="@+id/detailTitleTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/detailDateTextView"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp" />
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <TextView
-                android:id="@+id/detailContentTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp" />
-        </LinearLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/detailTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textSize="24sp"
+                    android:textColor="@color/pink_950"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/detailDateTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/pink_950"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:id="@+id/detailContentTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/pink_950"
+                    android:padding="8dp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -3,142 +3,198 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_50"
     tools:context=".view.scan.ScanActivity">
 
-    <TextView
-        android:id="@+id/tvHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/upload_your_image"
-        android:textAlignment="center"
-        android:textColor="@color/pink_950"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/button_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/pink_50"
-        android:paddingEnd="20dp"
-        android:paddingStart="24dp"
-        android:paddingTop="14dp"
-        android:src="@drawable/baseline_camera_alt_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/pink_950" />
-
-    <ImageView
-        android:id="@+id/imgPreview"
-        android:layout_width="360dp"
-        android:layout_height="360dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/camera_placeholder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHeader" />
-
-
-    <View
-        android:id="@+id/line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="42dp"
-        android:background="@color/pink_200"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgPreview" />
-
-    <Button
-        android:id="@+id/button_gallery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="84dp"
-        android:layout_weight="1"
-        android:elevation="2dp"
-        android:backgroundTint="@color/pink_400"
-        android:text="@string/choose_photo"
-        app:layout_constraintBottom_toBottomOf="@id/imgPreview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="visible"/>
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutSugar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:paddingStart="10dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/line"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:id="@+id/containerScan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
 
         <TextView
-            android:id="@+id/tvInputAmount"
+            android:id="@+id/tvHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/enter_amount"
-            android:textAlignment="textStart"
-            android:textColor="@color/pink_950"
-            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:text="@string/upload_your_image"
+            android:textAlignment="center"
+            android:textSize="24sp"
             android:textStyle="bold"
+            style="@style/viewColor950"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edLayoutSugar"
-            style="?attr/textInputFilledStyle"
+        <ImageButton
+            android:id="@+id/button_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFF1F3"
+            android:paddingStart="24dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="20dp"
+            android:src="@drawable/baseline_camera_alt_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/viewColor950" />
+
+        <ImageView
+            android:id="@+id/imgPreview"
+            android:layout_width="360dp"
+            android:layout_height="360dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/camera_placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeader" />
+
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="42dp"
+            android:background="@color/pink_200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgPreview" />
+
+        <Button
+            android:id="@+id/button_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="84dp"
+            android:layout_weight="1"
+            style="@style/buttonColor400"
+            android:elevation="2dp"
+            android:text="@string/choose_photo"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/imgPreview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutSugar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/pink_100"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInputAmount"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:helperText="Capture or select image first!">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edInputSugar"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvInputAmount"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:inputType="numberDecimal" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:text="@string/enter_amount"
+                android:textAlignment="textStart"
+                style="@style/viewColor950"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edLayoutSugar"
+                style="?attr/textInputFilledStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/pink_200"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvInputAmount"
+                app:helperTextTextColor="@color/pink_200">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edInputSugar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/pink_950"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/button_analyze"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            style="@style/buttonColor400"
+            android:paddingHorizontal="48dp"
+            android:text="@string/analyze"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutSugar" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/button_analyze"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:backgroundTint="@color/pink_400"
-        android:paddingHorizontal="48dp"
-        android:text="@string/analyze"
-        app:layout_constraintTop_toBottomOf="@id/layoutSugar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerScanLoading"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:indicatorColor="@color/pink_400"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contacting_the_server"
+            style="@style/viewColor950"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progressIndicator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/buttonTry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/try_again"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,5 +3,72 @@
     <style name="Base.Theme.Sweetify" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="background">
+        <item name="android:background">@color/pink_900</item>
+    </style>
+
+    <style name="TransparentDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="RoundedFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="shapeAppearance">@style/RoundedCorners</item>
+    </style>
+
+    <style name="RoundedCorners">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="viewColor950">
+        <item name="android:textColor">@color/pink_200</item>
+        <item name="tint">@color/pink_200</item>
+    </style>
+
+    <style name="viewColor50">
+        <item name="android:textColor">@color/pink_950</item>
+        <item name="tint">@color/pink_950</item>
+    </style>
+
+    <style name="buttonColor400">
+        <item name="backgroundTint">@color/pink_200</item>
+        <item name="android:textColor">@color/pink_950</item>
+    </style>
+
+    <style name="viewColor950wBg">
+        <item name="android:textColor">@color/pink_950</item>
+        <item name="tint">@color/pink_950</item>
+        <item name="android:background">@drawable/costum_bg_dark</item>
+    </style>
+
+    <style name="buttonColor100">
+        <item name="backgroundTint">@color/pink_300</item>
+        <item name="android:textColor">@color/pink_950</item>
+        <item name="drawableTint">@color/pink_950</item>
+    </style>
+    <style name="costumBgTheme">
+        <item name="android:background">@drawable/costum_bg_dark</item>
+    </style>
+    <style name="bottomNav">
+        <item name="android:background">@color/pink_950</item>
+        <item name="itemIconTint">@color/pink_400</item>
+        <item name="itemTextColor">@color/pink_400</item>
+    </style>
+
+    <style name="settingStyle">
+        <item name="android:background"> @drawable/costum_bg3_dark</item>
+    </style>
+
+    <style name="switchStyle">
+        <item name="trackTint">@color/pink_950</item>
+        <item name="thumbTint">@color/pink_400</item>
     </style>
 </resources>

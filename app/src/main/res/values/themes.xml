@@ -53,8 +53,60 @@
     <style name="RoundedFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
         <item name="shapeAppearance">@style/RoundedCorners</item>
     </style>
+
     <style name="RoundedCorners">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="viewColor950">
+        <item name="android:textColor">@color/pink_950</item>
+        <item name="tint">@color/pink_950</item>
+    </style>
+
+    <style name="viewColor950wBg">
+        <item name="android:textColor">@color/pink_950</item>
+        <item name="tint">@color/pink_950</item>
+        <item name="android:background">@drawable/costum_bg</item>
+    </style>
+
+    <style name="viewColor950topBg">
+        <item name="android:textColor">@color/pink_950</item>
+        <item name="tint">@color/pink_950</item>
+    </style>
+
+    <style name="viewColor50">
+        <item name="android:textColor">@color/pink_50</item>
+        <item name="tint">@color/pink_50</item>
+    </style>
+
+    <style name="buttonColor400">
+        <item name="backgroundTint">@color/pink_400</item>
+        <item name="android:textColor">@color/pink_50</item>
+    </style>
+
+    <style name="buttonColor100">
+        <item name="backgroundTint">@color/pink_100</item>
+        <item name="android:textColor">@color/pink_950</item>
+        <item name="drawableTint">@color/pink_950</item>
+    </style>
+
+    <style name="costumBgTheme">
+        <item name="android:background">@drawable/costum_bg</item>
+    </style>
+
+    <style name="bottomNav">
+        <item name="android:background">@color/pink_100</item>
+        <item name="itemIconTint">@color/pink_400</item>
+        <item name="itemTextColor">@color/pink_400</item>
+    </style>
+
+    <style name="settingStyle">
+        <item name="android:background"> @drawable/costum_bg3</item>
+    </style>
+    
+    <style name="switchStyle">
+        <item name="trackTint">@color/pink_400</item>
+        <item name="thumbTint">@color/pink_950</item>
     </style>
 </resources>

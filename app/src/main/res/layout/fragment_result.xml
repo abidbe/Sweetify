@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_50"
     tools:context=".view.scan.ScanActivity">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -38,12 +38,12 @@
 
             <TextView
                 android:id="@+id/tvHeader"
+                style="@style/viewColor950"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:text="@string/scan_result"
                 android:textAlignment="center"
-                android:textColor="@color/pink_950"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -75,12 +75,12 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_result"
+                style="@style/viewColor950wBg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="24dp"
-                android:background="@drawable/costum_bg"
                 android:paddingBottom="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -108,10 +108,10 @@
 
                     <TextView
                         android:id="@+id/tv_grade_result"
+                        style="@style/viewColor950wBg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/grade"
-                        android:textColor="@color/pink_950"
                         android:textSize="26sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -135,6 +135,7 @@
                             android:layout_height="match_parent"
                             android:paddingHorizontal="6dp"
                             android:text="@string/recommended"
+                            android:textColor="@color/pink_950"
                             android:textSize="12sp" />
                     </com.google.android.material.card.MaterialCardView>
 
@@ -161,20 +162,20 @@
 
                     <ImageView
                         android:id="@+id/imageDrink"
+                        style="@style/viewColor950wBg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/drink"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_grade_result"
-                        app:tint="@color/pink_950" />
+                        app:layout_constraintTop_toBottomOf="@id/tv_grade_result" />
 
                     <TextView
                         android:id="@+id/product_name"
+                        style="@style/viewColor950wBg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:text="@string/product_name"
-                        android:textColor="@color/pink_950"
                         android:textSize="12dp"
                         app:layout_constraintStart_toEndOf="@id/imageDrink"
                         app:layout_constraintTop_toBottomOf="@id/tv_grade_result" />
@@ -202,22 +203,22 @@
 
                         <ImageView
                             android:id="@+id/imageView2"
+                            style="@style/viewColor950topBg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:src="@drawable/dashboard"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:tint="@color/pink_950" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            style="@style/viewColor950topBg"
+                            android:layout_width="113dp"
+                            android:layout_height="23dp"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_bold"
                             android:text="@string/sugar"
-                            android:textColor="@color/pink_950"
                             android:textSize="12sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -225,11 +226,11 @@
 
                         <TextView
                             android:id="@+id/tv_sugar_result"
+                            style="@style/viewColor950topBg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="-12dp"
                             android:text="@string/gram_sugar"
-                            android:textColor="@color/pink_950"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toTopOf="@+id/tvCard2"
@@ -239,12 +240,12 @@
 
                         <TextView
                             android:id="@+id/tvCard2"
+                            style="@style/viewColor950topBg"
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:text="@string/grams"
                             android:textAlignment="center"
-                            android:textColor="@color/pink_950"
                             android:textSize="10sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent" />
@@ -273,22 +274,22 @@
 
                         <ImageView
                             android:id="@+id/imageView3"
+                            style="@style/viewColor950topBg"
                             android:layout_width="24dp"
                             android:layout_height="26dp"
                             android:layout_marginStart="16dp"
                             android:src="@drawable/sugar_cube"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:tint="@color/pink_950" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
+                            style="@style/viewColor950topBg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_bold"
                             android:text="@string/amount"
-                            android:textColor="@color/pink_950"
                             android:textSize="12sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -296,12 +297,12 @@
 
                         <TextView
                             android:id="@+id/tv_sugarAmount_result"
+                            style="@style/viewColor950topBg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="-12dp"
                             android:maxLength="4"
                             android:text="@string/grams_example"
-                            android:textColor="@color/pink_950"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toTopOf="@+id/tvCard3"
@@ -311,12 +312,12 @@
 
                         <TextView
                             android:id="@+id/tvCard3"
+                            style="@style/viewColor950topBg"
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:text="@string/grams"
                             android:textAlignment="center"
-                            android:textColor="@color/pink_950"
                             android:textSize="10sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent" />
@@ -336,18 +337,18 @@
 
                     <Button
                         android:id="@+id/button_cancel"
+                        style="@style/buttonColor400"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/pink_400"
                         android:text="@string/cancel"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
                         android:id="@+id/button_buy"
+                        style="@style/buttonColor400"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/pink_400"
                         android:text="@string/buy"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

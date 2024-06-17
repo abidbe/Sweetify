@@ -3,6 +3,7 @@ package com.abidbe.sweetify.view.welcome
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -106,6 +107,7 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun signIn() {
+        showLoading()
         val credentialManager = CredentialManager.create(this)
         val googleIdOption = GetGoogleIdOption.Builder()
             .setFilterByAuthorizedAccounts(false)
@@ -124,6 +126,7 @@ class OnboardingActivity : AppCompatActivity() {
                 handleSignIn(result)
             } catch (e: GetCredentialException) {
                 Log.d("Error", e.message.toString())
+                hideLoading()
             }
         }
     }
@@ -138,14 +141,17 @@ class OnboardingActivity : AppCompatActivity() {
                         firebaseAuthWithGoogle(googleIdTokenCredential.idToken)
                     } catch (e: GoogleIdTokenParsingException) {
                         Log.e(TAG, "Received an invalid google id token response", e)
+                        hideLoading()
                     }
                 } else {
                     Log.e(TAG, "Unexpected type of credential")
+                    hideLoading()
                 }
             }
 
             else -> {
                 Log.e(TAG, "Unexpected type of credential")
+                hideLoading()
             }
         }
     }
@@ -154,6 +160,7 @@ class OnboardingActivity : AppCompatActivity() {
         val credential: AuthCredential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
+                hideLoading()
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
                     val user: FirebaseUser? = auth.currentUser
@@ -177,6 +184,17 @@ class OnboardingActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }
+
+    private fun showLoading() {
+        binding.progressIndicator.visibility = View.VISIBLE
+        binding.container.alpha = 0.5f
+    }
+
+    private fun hideLoading() {
+        binding.progressIndicator.visibility = View.GONE
+        binding.container.alpha = 1f
+    }
+
 
     companion object {
         private const val TAG = "OnboardingActivity"

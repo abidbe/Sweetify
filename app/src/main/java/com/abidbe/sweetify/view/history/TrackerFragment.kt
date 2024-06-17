@@ -94,7 +94,7 @@ class TrackerFragment : Fragment() {
     private fun setPieChart(entries: List<PieEntry>) {
         val pink300 = ContextCompat.getColor(requireContext(), R.color.pink_300)
         val pink500 = ContextCompat.getColor(requireContext(), R.color.pink_500)
-        val pink100 = ContextCompat.getColor(requireContext(), R.color.pink_100)
+        val pink200 = ContextCompat.getColor(requireContext(), R.color.pink_200)
         val pink950 = ContextCompat.getColor(requireContext(), R.color.pink_950)
         val pieChart = binding.pieChart
 
@@ -114,7 +114,7 @@ class TrackerFragment : Fragment() {
         pieChart.description.isEnabled = false
         pieChart.isDrawHoleEnabled = true
         pieChart.holeRadius = 70f
-        pieChart.setHoleColor(pink100)
+        pieChart.setHoleColor(pink200)
         pieChart.setTransparentCircleAlpha(0)
         pieChart.transparentCircleRadius = 61f
         pieChart.setDrawCenterText(true)

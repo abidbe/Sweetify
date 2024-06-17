@@ -122,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="@string/grades_sugar"
-                    android:textColor="@color/pink_100"
+                    android:textColor="@color/pink_50"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"

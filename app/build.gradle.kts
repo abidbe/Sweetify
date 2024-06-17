@@ -73,4 +73,5 @@ dependencies {
     implementation(libs.googleid)
 
     implementation(libs.glide)
+    implementation(libs.datastore.preferences)
 }

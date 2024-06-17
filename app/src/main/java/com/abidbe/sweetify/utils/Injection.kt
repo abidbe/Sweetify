@@ -11,4 +11,8 @@ object Injection {
         val database = SweetifyDatabase.getDatabase(context)
         return ScanRepository.getInstance(apiService,database)
     }
+
+    fun provideSettingPreferences(context: Context): SettingPreferences {
+        return SettingPreferences.getInstance(context.dataStore)
+    }
 }

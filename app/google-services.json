@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "753469274486-b07bq1e4u39bida17bhd7rb7p1dq3tv8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abidbe.sweetify",
+            "certificate_hash": "d7788e2d08c691a3b0e3ccaeaf142978e3edd001"
+          }
+        },
+        {
           "client_id": "753469274486-crps6cmg762fruanuq7r69gkiqi5kpu8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

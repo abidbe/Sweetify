@@ -24,12 +24,16 @@ class GlupediaFragment : Fragment() {
     ): View {
         binding = FragmentGlupediaBinding.inflate(inflater, container, false)
         binding.recyclerView.layoutManager = GridLayoutManager(context, 2)
+        binding.btnTryAgain.setOnClickListener {
+            fetchGlupedias()
+        }
         fetchGlupedias()
         return binding.root
     }
 
-    private fun fetchGlupedias() { 
+    private fun fetchGlupedias() {
         showLoading(true)
+        binding.btnTryAgain.visibility = View.GONE
         ApiClient.apiService.getAllGlupedias().enqueue(object : Callback<GlupediaListResponse> {
             override fun onResponse(call: Call<GlupediaListResponse>, response: Response<GlupediaListResponse>) {
                 showLoading(false)
@@ -40,23 +44,28 @@ class GlupediaFragment : Fragment() {
                         // Navigate to detail fragment using NavController
                         val action = GlupediaFragmentDirections.actionGlupediaFragmentToGlupediaDetailFragment(glupedia.id)
                         findNavController().navigate(action)
-
                     }
                     binding.tvGlu.text = getString(R.string.learn_more_by_reading_the_article)
                     binding.ivGlu.setImageResource(R.drawable.newspaper)
                 } else {
                     Log.e("GlupediaFragment", "Failed to fetch glupedias")
+                    showRetryButton()
                 }
             }
 
             override fun onFailure(call: Call<GlupediaListResponse>, t: Throwable) {
                 showLoading(false)
                 Log.e("GlupediaFragment", "Error fetching glupedias", t)
+                showRetryButton()
             }
         })
     }
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun showRetryButton() {
+        binding.btnTryAgain.visibility = View.VISIBLE
     }
 }

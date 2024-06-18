@@ -59,6 +59,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <Button
+                        android:id="@+id/btn_try_again"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/try_again"
+                        android:visibility="gone"
+                        android:layout_gravity="center"/>
+                </FrameLayout>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

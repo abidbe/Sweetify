@@ -354,7 +354,7 @@
                             android:textSize="18sp" />
 
                         <TextView
-                            android:id="@+id/textView4"
+                            android:id="@+id/viewAll"
                             style="@style/viewColor950"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -379,7 +379,7 @@
                                 android:id="@+id/cardGlu1"
                                 style="?attr/materialCardViewElevatedStyle"
                                 android:layout_width="180dp"
-                                android:layout_height="240dp"
+                                android:layout_height="250dp"
                                 android:layout_margin="8dp"
                                 android:backgroundTint="@color/pink_100">
 
@@ -403,7 +403,7 @@
                                         android:layout_marginTop="4dp"
                                         android:fontFamily="@font/poppins_semibold"
                                         android:paddingHorizontal="8dp"
-                                        android:text="I Eat Chocolate After 30 Days of Quitting Sugar."
+                                        android:text="@string/content_1"
                                         android:textSize="12sp" />
 
                                     <TextView
@@ -411,7 +411,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:paddingHorizontal="8dp"
-                                        android:text="Mr. Plan"
+                                        android:text="@string/today"
                                         android:textSize="10sp" />
 
 
@@ -423,7 +423,7 @@
                                 android:id="@+id/cardGlu2"
                                 style="?attr/materialCardViewElevatedStyle"
                                 android:layout_width="180dp"
-                                android:layout_height="240dp"
+                                android:layout_height="250dp"
                                 android:layout_margin="8dp"
                                 android:backgroundTint="@color/pink_100">
 
@@ -447,7 +447,7 @@
                                         android:layout_marginTop="4dp"
                                         android:fontFamily="@font/poppins_semibold"
                                         android:paddingHorizontal="8dp"
-                                        android:text="I Think I Might Have Kicked The Drug Called Sugar"
+                                        android:text="@string/content_2"
                                         android:textSize="12sp" />
 
                                     <TextView
@@ -455,7 +455,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:paddingHorizontal="8dp"
-                                        android:text="Michael Trigg"
+                                        android:text="@string/yesterday"
                                         android:textSize="10sp" />
 
 
@@ -467,7 +467,7 @@
                                 android:id="@+id/cardGlu3"
                                 style="?attr/materialCardViewElevatedStyle"
                                 android:layout_width="180dp"
-                                android:layout_height="240dp"
+                                android:layout_height="250dp"
                                 android:layout_margin="8dp"
                                 android:backgroundTint="@color/pink_100">
 
@@ -491,7 +491,7 @@
                                         android:layout_marginTop="4dp"
                                         android:fontFamily="@font/poppins_semibold"
                                         android:paddingHorizontal="8dp"
-                                        android:text="Why I Gave Up Sugar and You Should Give Up Too."
+                                        android:text="@string/content_3"
                                         android:textSize="12sp" />
 
                                     <TextView
@@ -499,7 +499,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:paddingHorizontal="8dp"
-                                        android:text="Dr James Smith"
+                                        android:text="@string/_15_june_2024"
                                         android:textSize="10sp" />
 
 

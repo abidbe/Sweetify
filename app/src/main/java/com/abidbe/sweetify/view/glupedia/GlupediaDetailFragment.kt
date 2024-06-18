@@ -34,6 +34,9 @@ class GlupediaDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentGlupediaDetailBinding.inflate(inflater, container, false)
+        binding.btnTryAgain.setOnClickListener {
+            fetchGlupediaDetails(args.glupediaId)
+        }
         fetchGlupediaDetails(args.glupediaId)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             binding.detailContentTextView.justificationMode = JUSTIFICATION_MODE_INTER_WORD
@@ -43,6 +46,7 @@ class GlupediaDetailFragment : Fragment() {
 
     private fun fetchGlupediaDetails(id: Int) {
         showLoading(true)
+        binding.btnTryAgain.visibility = View.GONE
         ApiClient.apiService.getGlupediaById(id).enqueue(object : Callback<GlupediaResponse> {
             override fun onResponse(call: Call<GlupediaResponse>, response: Response<GlupediaResponse>) {
                 showLoading(false)
@@ -64,10 +68,12 @@ class GlupediaDetailFragment : Fragment() {
                     } ?: run {
                         Log.e("GlupediaDetailFragment", "Glupedia data is null")
                         showError("Failed to load data")
+                        showRetryButton()
                     }
                 } else {
                     Log.e("GlupediaDetailFragment", "Failed to fetch glupedia details: ${response.errorBody()?.string()}")
                     showError("Failed to fetch data")
+                    showRetryButton()
                 }
             }
 
@@ -75,6 +81,7 @@ class GlupediaDetailFragment : Fragment() {
                 showLoading(false)
                 Log.e("GlupediaDetailFragment", "Error fetching glupedia details", t)
                 showError("Network error, please try again")
+                showRetryButton()
             }
         })
     }
@@ -102,5 +109,8 @@ class GlupediaDetailFragment : Fragment() {
 
     private fun showError(message: String) {
         // Show error message to the user, for example using a Toast or a Snackbar
+    }
+    private fun showRetryButton() {
+        binding.btnTryAgain.visibility = View.VISIBLE
     }
 }

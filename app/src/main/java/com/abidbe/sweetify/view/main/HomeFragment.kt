@@ -64,6 +64,15 @@ class HomeFragment : Fragment() {
         binding.searchBar.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
+        binding.viewAll.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_glupediaFragment)
+        }
+        binding.imvUserPhoto.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
+        binding.tvGreeting.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+        }
     }
 
     private fun navigateToGradeDetail(grade: String) {
